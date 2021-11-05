@@ -1,19 +1,21 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Gun.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sounds/music/music1.wav" type="AudioStream" id=2]
 [ext_resource path="res://Player.gd" type="Script" id=3]
 [ext_resource path="res://hp_bar.tres" type="Theme" id=4]
+[ext_resource path="res://sounds/player/hit.wav" type="AudioStream" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.835294, 0.12549, 0.12549, 1 )
 border_width_left = 2
 border_width_top = 2
 border_width_bottom = 2
 border_color = Color( 1, 0, 0.447059, 1 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.196078, 0.0823529, 0.0823529, 0.498039 )
 border_width_left = 2
 border_width_top = 2
@@ -45,24 +47,32 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
-margin_right = 245.0
+margin_right = 244.0
 margin_bottom = 14.0
 text = "HP"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/VBoxContainer"]
+[node name="hp_bar" type="ProgressBar" parent="CanvasLayer/VBoxContainer"]
 margin_top = 18.0
-margin_right = 245.0
+margin_right = 244.0
 margin_bottom = 36.0
 theme = ExtResource( 4 )
-custom_styles/fg = SubResource( 3 )
-custom_styles/bg = SubResource( 4 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 max_value = 20.0
-value = 10.0
+value = 20.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -14.0
+autoplay = true
