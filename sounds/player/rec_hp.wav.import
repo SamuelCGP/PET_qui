@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/rec_hp.wav-46a8742480908467014b5757389144bf.sample"
+
+[deps]
+
+source_file="res://sounds/player/rec_hp.wav"
+dest_files=[ "res://.import/rec_hp.wav-46a8742480908467014b5757389144bf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

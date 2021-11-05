@@ -6,7 +6,7 @@ onready var audio_shoot: AudioStreamPlayer = $shoot
 onready var anim_delay: float = anim_player.get_animation("shoot").length
 
 export(float, 1, 10, 0.5) var gun_dmg: int = 1
-onready var gun_delay: float = anim_delay
+onready var fire_delay: float = anim_delay
 
 var inDelay = false
 
@@ -28,10 +28,10 @@ func shoot() -> void:
 	gun_delay()
 		
 func gun_delay():
-	yield(get_tree().create_timer(gun_delay), "timeout")
+	yield(get_tree().create_timer(fire_delay), "timeout")
 	inDelay = false
 	
 func deal_damage(enemy: Enemy):
-	enemy.rec_damage(gun_dmg)
+	enemy.rec_dmg(gun_dmg)
 	if enemy.hp <= 0:
 		enemy.kill()

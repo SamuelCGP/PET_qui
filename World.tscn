@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Zombie.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://TankZombie.tscn" type="PackedScene" id=3]
-[ext_resource path="res://pencil.glb" type="PackedScene" id=4]
-[ext_resource path="res://sprites/ground.png" type="Texture" id=5]
+[ext_resource path="res://Health_Kit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sprites/ambient/ground.png" type="Texture" id=5]
+[ext_resource path="res://Item.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 100, 0.5, 100 )
@@ -29,9 +30,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.024, 2, -15.858 )
 [node name="TankZombie" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -15.802 )
 
-[node name="pencil" parent="." instance=ExtResource( 4 )]
-transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -0.101938, 0.694177, -6.90555 )
-
 [node name="MeshInstance" type="MeshInstance" parent="."]
 mesh = SubResource( 1 )
 material/0 = SubResource( 2 )
+
+[node name="Item" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.17959, 1.05811, -4.67452 )
+
+[node name="Health_Kit" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.68927, 0.960909, -5.48127 )

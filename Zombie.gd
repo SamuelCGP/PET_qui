@@ -37,19 +37,17 @@ func _physics_process(delta: float) -> void:
 			deal_damage(coll)
 
 func deal_damage(player):
-	player.rec_damage(enemy_dmg)
+	player.rec_dmg(enemy_dmg)
 	inDelay = true
 	if player.hp <= 0:
 		player.kill()
 	atk_delay()
 
-func rec_damage(dmg):
+func rec_dmg(dmg):
 	hp = hp - dmg
 
 func atk_delay():
-	print("In delay")
 	yield(get_tree().create_timer(delay), "timeout")
-	print("Out of delay")
 	inDelay = false
 
 func kill():

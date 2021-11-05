@@ -5,9 +5,11 @@ const MOVE_SPEED = 4
 const MOUSE_SENS = 0.5
 
 onready var audio_music: AudioStreamPlayer = $music
-onready var audio_hit: AudioStreamPlayer = $hit
+onready var audio_hit: AudioStreamPlayer = $rec_dmg
+onready var audio_hp: AudioStreamPlayer = $rec_hp
 onready var hp_bar: ProgressBar = $CanvasLayer/VBoxContainer/hp_bar
 
+onready var max_hp: int = hp_bar.value
 var hp: int = 20
 var cur_speed: int = MOVE_SPEED
 
@@ -45,7 +47,14 @@ func _physics_process(delta):
 	move_vec = move_vec.rotated(Vector3(0, 1, 0), rotation.y)
 	move_and_collide(move_vec * cur_speed * delta)
 
-func rec_damage(dmg):
+func rec_hp(h):
+	hp = hp + h
+	if hp >= max_hp:
+		hp = max_hp
+	audio_hp.play()
+	update_hud()
+	
+func rec_dmg(dmg):
 	hp = hp - dmg
 	audio_hit.play()
 	update_hud()
