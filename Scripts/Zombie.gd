@@ -36,11 +36,14 @@ func _physics_process(delta: float) -> void:
 		if coll != null and coll.name == "Player":
 			deal_damage(coll)
 
-func deal_damage(player):
-	player.rec_dmg(enemy_dmg)
+func deal_damage(collided_player: Player) -> void:
+	collided_player.rec_dmg(enemy_dmg)
+	
 	inDelay = true
-	if player.hp <= 0:
-		player.kill()
+	
+	if collided_player.hp <= 0:
+		collided_player.kill()
+	
 	atk_delay()
 
 func rec_dmg(dmg):

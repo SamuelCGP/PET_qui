@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Item.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Health_Kit.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Health_Kit.gd" type="Script" id=2]
 [ext_resource path="res://models/Medkit-1.1/obj/medkit.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://models/Medkit-1.1/fbx/Material_001.material" type="Material" id=4]
 [ext_resource path="res://models/Medkit-1.1/fbx/Material.material" type="Material" id=5]

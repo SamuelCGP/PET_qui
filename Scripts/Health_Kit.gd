@@ -1,8 +1,10 @@
 extends Item
 
+export var hp_recovery: int = 5
+var rotate_speed: float = 100.0
+
 onready var medkit: MeshInstance = $medkit
 
-export var hp_recovery: int = 5
 
 func event(player: Player) -> void:
 	if !player.hp >= 20:
@@ -10,5 +12,5 @@ func event(player: Player) -> void:
 		pick_sound.play()
 		hide()
 
-func _process(delta):
-	medkit.rotate_y(deg2rad(5.0))
+func _process(delta: float) -> void:
+	medkit.rotate_y(deg2rad(rotate_speed) * delta)
