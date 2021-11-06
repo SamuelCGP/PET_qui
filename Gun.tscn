@@ -26,6 +26,7 @@ tracks/0/keys = {
 enabled = true
 cast_to = Vector3( 0, 0, -2000 )
 script = ExtResource( 2 )
+shake_magnitude = 200.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -42,7 +43,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/CenterContainer"]
+[node name="Crosshair" type="TextureRect" parent="CanvasLayer/CenterContainer"]
 margin_left = 304.0
 margin_top = 164.0
 margin_right = 336.0

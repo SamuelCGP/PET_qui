@@ -2,7 +2,7 @@ extends KinematicBody
 class_name Player
 
 const MOVE_SPEED = 4
-const MOUSE_SENS = 0.5
+const MOUSE_SENS = 0.25
 
 onready var audio_music: AudioStreamPlayer = $music
 onready var audio_hit: AudioStreamPlayer = $rec_dmg
@@ -10,6 +10,7 @@ onready var audio_hp: AudioStreamPlayer = $rec_hp
 onready var hp_bar: ProgressBar = $CanvasLayer/VBoxContainer/hp_bar
 
 onready var max_hp: int = hp_bar.value
+
 var hp: int = 20
 var cur_speed: int = MOVE_SPEED
 
@@ -19,38 +20,39 @@ func _ready():
 	get_tree().call_group("zombies", "set_player", self)
 	
 func _input(event):
-	if event is InputEventMouseMotion:
-		rotation_degrees.y -= MOUSE_SENS * event.relative.x
-
-func _process(delta):
-	if Input.is_action_pressed("exit"):
+	if event.is_action_pressed("exit"):
 		get_tree().quit()
-	if Input.is_action_pressed("restart"):
-		kill()
+	
+	if event.is_action_pressed("restart"):
+		get_tree().reload_current_scene()
 		
-func _physics_process(delta):
+	if event is InputEventMouseMotion:
+		rotation_degrees.x -= MOUSE_SENS * event.relative.y
+		rotation_degrees.y -= MOUSE_SENS * event.relative.x
+		
+func _physics_process(delta: float):
 	var move_vec = Vector3()
-	if Input.is_action_pressed("move_fowards"):
-		move_vec.z -= 1
-	if Input.is_action_pressed("move_backwards"):
-		move_vec.z += 1
-	if Input.is_action_pressed("move_left"):
-		move_vec.x -= 1
-	if Input.is_action_pressed("move_right"):
-		move_vec.x += 1
-	if Input.is_action_pressed("sprint"):
-		cur_speed = MOVE_SPEED * 2
-	if Input.is_action_just_released("sprint"):
-		cur_speed = MOVE_SPEED
-		
-	move_vec = move_vec.normalized()
+	
+	var input_z := Input.get_action_strength("move_backwards") - Input.get_action_strength("move_fowards")
+	var input_x := Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	
+	move_vec = Vector3(input_x, 0, input_z).normalized()
+	
+	var running_delta := int(Input.is_action_pressed("sprint")) * MOVE_SPEED
+	cur_speed = MOVE_SPEED + (running_delta)
+	
 	move_vec = move_vec.rotated(Vector3(0, 1, 0), rotation.y)
-	move_and_collide(move_vec * cur_speed * delta)
+	move_vec = move_and_slide(move_vec * cur_speed)
 
-func rec_hp(h):
+func kill() -> void:
+	get_tree().reload_current_scene()
+
+func rec_hp(h: int) -> void:
 	hp = hp + h
+	
 	if hp >= max_hp:
 		hp = max_hp
+		
 	audio_hp.play()
 	update_hud()
 	
@@ -58,9 +60,6 @@ func rec_dmg(dmg):
 	hp = hp - dmg
 	audio_hit.play()
 	update_hud()
-	
-func kill():
-	get_tree().reload_current_scene()
 
 func update_hud():
 	hp_bar.value = hp
