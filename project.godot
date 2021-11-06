@@ -12,25 +12,31 @@ _global_script_classes=[ {
 "base": "KinematicBody",
 "class": "Enemy",
 "language": "GDScript",
-"path": "res://Zombie.gd"
+"path": "res://Scripts/Zombie.gd"
+}, {
+"base": "Camera",
+"class": "FPCamera",
+"language": "GDScript",
+"path": "res://Scripts/Camera.gd"
 }, {
 "base": "RayCast",
 "class": "Gun",
 "language": "GDScript",
-"path": "res://gun.gd"
+"path": "res://Scripts/gun.gd"
 }, {
 "base": "Area",
 "class": "Item",
 "language": "GDScript",
-"path": "res://Item.gd"
+"path": "res://Scripts/Item.gd"
 }, {
 "base": "KinematicBody",
 "class": "Player",
 "language": "GDScript",
-"path": "res://Player.gd"
+"path": "res://Scripts/Player.gd"
 } ]
 _global_script_class_icons={
 "Enemy": "",
+"FPCamera": "",
 "Gun": "",
 "Item": "",
 "Player": ""
@@ -39,7 +45,7 @@ _global_script_class_icons={
 [application]
 
 config/name="PET"
-run/main_scene="res://World.tscn"
+run/main_scene="res://Scenes/World.tscn"
 config/icon="res://icon.png"
 
 [display]

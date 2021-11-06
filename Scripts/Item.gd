@@ -7,7 +7,7 @@ func _on_Item_body_entered(body: Node) -> void:
 	if body != null and body.name == "Player":
 		event(body)	
 		
-func event(player: Player) -> void:
+func event(_player: Player) -> void:
 	pick_sound.play()
 	hide()
 	

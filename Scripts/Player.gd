@@ -4,15 +4,15 @@ class_name Player
 const MOVE_SPEED = 4
 const MOUSE_SENS = 0.25
 
+var hp: int = 20
+var cur_speed: int = MOVE_SPEED
+
 onready var audio_music: AudioStreamPlayer = $music
 onready var audio_hit: AudioStreamPlayer = $rec_dmg
 onready var audio_hp: AudioStreamPlayer = $rec_hp
 onready var hp_bar: ProgressBar = $CanvasLayer/VBoxContainer/hp_bar
 
 onready var max_hp: int = hp_bar.value
-
-var hp: int = 20
-var cur_speed: int = MOVE_SPEED
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -28,9 +28,11 @@ func _input(event):
 		
 	if event is InputEventMouseMotion:
 		rotation_degrees.x -= MOUSE_SENS * event.relative.y
+		rotation_degrees.x = clamp(rotation_degrees.x, -45, 90)
+		
 		rotation_degrees.y -= MOUSE_SENS * event.relative.x
 		
-func _physics_process(delta: float):
+func _physics_process(_delta: float):
 	var move_vec = Vector3()
 	
 	var input_z := Input.get_action_strength("move_backwards") - Input.get_action_strength("move_fowards")
