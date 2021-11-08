@@ -5,7 +5,6 @@ var rotate_speed: float = 100.0
 
 onready var medkit: MeshInstance = $medkit
 
-
 func event(player: Player) -> void:
 	if !player.hp >= 20:
 		player.rec_hp(hp_recovery)

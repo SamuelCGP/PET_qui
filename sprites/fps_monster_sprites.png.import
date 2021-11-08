@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fps_monster_sprites.png-a2d74d2f8caf7a59f6708a73b7daae73.stex"
+path="res://.import/fps_monster_sprites.png-f46da9cf5fc857280a4a80a4b9489e3f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/fps_monster_sprites.png"
-dest_files=[ "res://.import/fps_monster_sprites.png-a2d74d2f8caf7a59f6708a73b7daae73.stex" ]
+source_file="res://sprites/fps_monster_sprites.png"
+dest_files=[ "res://.import/fps_monster_sprites.png-f46da9cf5fc857280a4a80a4b9489e3f.stex" ]
 
 [params]
 
@@ -28,7 +28,6 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
-process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false

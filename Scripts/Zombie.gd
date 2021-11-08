@@ -9,7 +9,7 @@ var dead = false
 var inDelay = false
 
 export(float, 0.5, 10, 0.5) var speed: float = 3
-export var delay = 0.5
+onready var delay: float = anim_player.get_animation("attacking").length
 export var hp = 3
 export var enemy_dmg = 1
 
@@ -50,7 +50,9 @@ func rec_dmg(dmg):
 	hp = hp - dmg
 
 func atk_delay():
+	anim_player.play("attacking")
 	yield(get_tree().create_timer(delay), "timeout")
+	anim_player.play("walk")
 	inDelay = false
 
 func kill():
