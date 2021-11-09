@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PVC_shoot.wav-1a941ea269d2bda8fff9d3e7e596670c.sample"
+
+[deps]
+
+source_file="res://sounds/guns/PVC_shoot.wav"
+dest_files=[ "res://.import/PVC_shoot.wav-1a941ea269d2bda8fff9d3e7e596670c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

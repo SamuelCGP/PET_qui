@@ -49,3 +49,6 @@ func deal_damage(enemy: Enemy):
 	enemy.rec_dmg(gun_dmg)
 	if enemy.hp <= 0:
 		enemy.kill()
+
+func self_destroy():
+	queue_free()

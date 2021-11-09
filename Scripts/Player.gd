@@ -18,6 +18,9 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	yield(get_tree(), "idle_frame")
 	get_tree().call_group("zombies", "set_player", self)
+	# REMOVER ESSA LINHA \/
+	self.remove_child($PetGun)
+	# REMOVER ESSA LINHA /\
 	
 func _input(event):
 	if event.is_action_pressed("exit"):

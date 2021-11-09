@@ -1,14 +1,13 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://sounds/guns/PVC_shoot.wav" type="AudioStream" id=1]
-[ext_resource path="res://sprites/fps_shooter_sprites.png" type="Texture" id=2]
+[ext_resource path="res://sprites/guns/3PVC.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/crosshair.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/gun.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "shoot"
-length = 0.3
-step = 0.05
+step = 0.15
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Sprite:frame")
 tracks/0/interp = 1
@@ -16,18 +15,18 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.15, 0.25 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.15, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 1, 2, 3, 0 ]
+"values": [ 1, 2, 3, 4, 0 ]
 }
 
-[node name="Gun" type="RayCast"]
+[node name="PVCgun" type="RayCast"]
 enabled = true
 cast_to = Vector3( 0, 0, -2000 )
 script = ExtResource( 4 )
 camera_path = NodePath(".")
-shake_magnitude = 5.0
+shake_magnitude = 10.0
 gun_dmg = 3.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -36,8 +35,7 @@ gun_dmg = 3.0
 position = Vector2( 512, 232 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
-hframes = 4
-frame = 1
+hframes = 5
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
 anchor_right = 1.0
