@@ -1,13 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://guns/PetGun.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sounds/music/music1.wav" type="AudioStream" id=2]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=3]
 [ext_resource path="res://hp_bar.tres" type="Theme" id=4]
 [ext_resource path="res://sounds/player/hit.wav" type="AudioStream" id=5]
 [ext_resource path="res://sounds/player/rec_hp.wav" type="AudioStream" id=6]
 [ext_resource path="res://Scripts/Camera.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/PVCGun.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -33,13 +31,6 @@ script = ExtResource( 3 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 1 )
 
-[node name="PetGun" parent="." instance=ExtResource( 1 )]
-camera_path = NodePath("../Camera")
-shake_magnitude = 200.0
-gun_dmg = 1.0
-
-[node name="PVCgun" parent="." instance=ExtResource( 8 )]
-
 [node name="Camera" type="Camera" parent="."]
 current = true
 script = ExtResource( 7 )
@@ -47,16 +38,16 @@ script = ExtResource( 7 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-margin_left = 6.24316
-margin_top = 313.483
-margin_right = 251.243
-margin_bottom = 353.483
+margin_left = 5.0
+margin_top = 289.0
+margin_right = 252.0
+margin_bottom = 326.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
-margin_right = 244.0
+margin_right = 247.0
 margin_bottom = 14.0
 text = "HP"
 __meta__ = {
@@ -65,7 +56,7 @@ __meta__ = {
 
 [node name="hp_bar" type="ProgressBar" parent="CanvasLayer/VBoxContainer"]
 margin_top = 18.0
-margin_right = 244.0
+margin_right = 247.0
 margin_bottom = 36.0
 theme = ExtResource( 4 )
 custom_styles/fg = SubResource( 2 )
@@ -74,6 +65,23 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 max_value = 20.0
 value = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer"]
+margin_left = 5.0
+margin_top = 336.0
+margin_right = 357.0
+margin_bottom = 350.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="gun_name_label" type="Label" parent="CanvasLayer/VBoxContainer2"]
+margin_right = 352.0
+margin_bottom = 14.0
+text = "gun name here"
 __meta__ = {
 "_edit_use_anchors_": false
 }

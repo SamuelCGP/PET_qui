@@ -11,6 +11,13 @@ onready var audio_music: AudioStreamPlayer = $music
 onready var audio_hit: AudioStreamPlayer = $rec_dmg
 onready var audio_hp: AudioStreamPlayer = $rec_hp
 onready var hp_bar: ProgressBar = $CanvasLayer/VBoxContainer/hp_bar
+onready var gun_name_label: Label = $CanvasLayer/VBoxContainer2/gun_name_label
+
+onready var pet_gun = load("res://guns/PETGun.tscn").instance()
+onready var pvc_gun = load("res://guns/PVCGun.tscn").instance()
+onready var guns = [pet_gun, pvc_gun]
+onready var cur_gun: int = 0
+var cur_gun_name: String = ""
 
 onready var max_hp: int = hp_bar.value
 
@@ -18,9 +25,9 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	yield(get_tree(), "idle_frame")
 	get_tree().call_group("zombies", "set_player", self)
-	# REMOVER ESSA LINHA \/
-	self.remove_child($PetGun)
-	# REMOVER ESSA LINHA /\
+	add_child(guns[cur_gun])
+	cur_gun_name = guns[cur_gun].gun_name
+	update_hud()
 	
 func _input(event):
 	if event.is_action_pressed("exit"):
@@ -48,7 +55,29 @@ func _physics_process(_delta: float):
 	
 	move_vec = move_vec.rotated(Vector3(0, 1, 0), rotation.y)
 	move_vec = move_and_slide(move_vec * cur_speed)
+	
+	if Input.is_action_just_released("nextGun"):
+		changeGun("nextGun")
+	if Input.is_action_just_released("previousGun"):
+		changeGun("previousGun")
 
+func changeGun(action: String) -> void:
+	match action:
+		"nextGun":
+			if cur_gun < guns.size() - 1:
+				remove_child(guns[cur_gun])
+				cur_gun += 1
+		"previousGun":
+			if cur_gun > 0:
+				remove_child(guns[cur_gun])
+				cur_gun -= 1
+		_:
+			return
+	add_child(guns[cur_gun])
+	cur_gun_name = guns[cur_gun].gun_name
+	print(cur_gun_name)
+	update_hud()
+	
 func kill() -> void:
 	get_tree().reload_current_scene()
 
@@ -68,3 +97,4 @@ func rec_dmg(dmg):
 
 func update_hud():
 	hp_bar.value = hp
+	gun_name_label.text = cur_gun_name

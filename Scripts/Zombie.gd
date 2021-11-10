@@ -9,9 +9,11 @@ var dead = false
 var inDelay = false
 
 export(float, 0.5, 10, 0.5) var speed: float = 3
-onready var delay: float = anim_player.get_animation("attacking").length
 export var hp = 3
 export var enemy_dmg = 1
+export(int, 0, 6, 1) var enemy_type = 0
+
+onready var delay: float = anim_player.get_animation("attacking").length
 
 func _ready() -> void:
 	anim_player.play("walk")

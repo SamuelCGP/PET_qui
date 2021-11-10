@@ -27,7 +27,9 @@ cast_to = Vector3( 0, 0, -2000 )
 script = ExtResource( 4 )
 camera_path = NodePath(".")
 shake_magnitude = 10.0
+gun_name = "Policloreto de vinila"
 gun_dmg = 3.0
+gun_type = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

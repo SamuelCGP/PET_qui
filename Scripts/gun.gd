@@ -9,7 +9,9 @@ class_name Gun
 export var camera_path: NodePath
 
 export(float, 0, 5, 0.5) var shake_magnitude: float = 0 
+export var gun_name: String = "gun"
 export(float, 1, 10, 0.5) var gun_dmg: int = 1
+export(int, 0, 6, 1) var gun_type: int = 0
 
 onready var sprite: Sprite = $CanvasLayer/Sprite
 onready var anim_player: AnimationPlayer = $AnimationPlayer
@@ -46,7 +48,8 @@ func gun_delay():
 	in_delay = false
 	
 func deal_damage(enemy: Enemy):
-	enemy.rec_dmg(gun_dmg)
+	if enemy.enemy_type == gun_type:
+		enemy.rec_dmg(gun_dmg)
 	if enemy.hp <= 0:
 		enemy.kill()
 
