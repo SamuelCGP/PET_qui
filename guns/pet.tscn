@@ -11,6 +11,7 @@ gun_name = "Polietileno Tereftalato"
 
 [node name="Sprite" parent="CanvasLayer" index="0"]
 texture = ExtResource( 2 )
+frame = 0
 
 [node name="shoot" parent="." index="2"]
 stream = ExtResource( 3 )
