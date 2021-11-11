@@ -56,8 +56,9 @@ tracks/0/keys = {
 }
 
 [node name="Zombie" type="KinematicBody"]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource( 2 )
-enemy_type = 1
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )

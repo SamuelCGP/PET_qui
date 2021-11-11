@@ -1,22 +1,15 @@
 extends RayCast
 class_name Gun
 
-# NodePath é a classe usada pelo Godot no "$" para buscar Nodes.
-
-# Exportar uma variável com esse tipo faz um seletor de Nodes
-# bonitinho, muito útil quando o Node que você está buscando
-# está fora da sua árvore.
-export var camera_path: NodePath
-
 export(float, 0, 5, 0.5) var shake_magnitude: float = 0 
-export var gun_name: String = "gun"
 export(float, 1, 10, 0.5) var gun_dmg: int = 1
-export(int, 0, 6, 1) var gun_type: int = 0
+export(int, "PET", "PEAD", "PVC", "PEBD", "PP", "PS") var gun_type: int = 0
+export var gun_name: String = "gun"
 
 onready var sprite: Sprite = $CanvasLayer/Sprite
 onready var anim_player: AnimationPlayer = $AnimationPlayer
 onready var audio_shoot: AudioStreamPlayer = $shoot
-onready var camera: FPCamera = get_node_or_null(camera_path) as FPCamera
+onready var camera: FPCamera = get_parent().get_node("Camera") as FPCamera
 
 onready var anim_delay: float = anim_player.get_animation("shoot").length
 onready var fire_delay: float = anim_delay
@@ -36,9 +29,10 @@ func shoot() -> void:
 	
 	if (camera): camera.shake(0.25)
 	
-	var coll = get_collider()
-	if is_colliding() and coll.has_method("kill"):
-		deal_damage(coll)
+	var _collider: Node = get_collider()
+	
+	if is_instance_valid(_collider) and _collider.is_in_group("zombies"):
+		deal_damage(_collider)
 	
 	in_delay = true
 	gun_delay()
@@ -47,8 +41,9 @@ func gun_delay():
 	yield(get_tree().create_timer(fire_delay), "timeout")
 	in_delay = false
 	
-func deal_damage(enemy: Enemy):
+func deal_damage(enemy: KinematicBody):
 	if enemy.enemy_type == gun_type:
+		print("> Done damage to " + enemy.to_string())
 		enemy.rec_dmg(gun_dmg)
 	if enemy.hp <= 0:
 		enemy.kill()

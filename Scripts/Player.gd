@@ -1,32 +1,27 @@
 extends KinematicBody
 class_name Player
 
-const MOVE_SPEED = 4
-const MOUSE_SENS = 0.25
+const MOVE_SPEED: float = 4.0
+const MOUSE_SENS: float = 0.25
 
 var hp: int = 20
 var cur_speed: int = MOVE_SPEED
+var move_vec: Vector3 = Vector3()
 
 onready var audio_music: AudioStreamPlayer = $music
 onready var audio_hit: AudioStreamPlayer = $rec_dmg
 onready var audio_hp: AudioStreamPlayer = $rec_hp
 onready var hp_bar: ProgressBar = $CanvasLayer/VBoxContainer/hp_bar
-onready var gun_name_label: Label = $CanvasLayer/VBoxContainer2/gun_name_label
-
-onready var pet_gun = load("res://guns/PETGun.tscn").instance()
-onready var pvc_gun = load("res://guns/PVCGun.tscn").instance()
-onready var guns = [pet_gun, pvc_gun]
-onready var cur_gun: int = 0
-var cur_gun_name: String = ""
+onready var gun_controller: GunController = $GunController as GunController
 
 onready var max_hp: int = hp_bar.value
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 	yield(get_tree(), "idle_frame")
 	get_tree().call_group("zombies", "set_player", self)
-	add_child(guns[cur_gun])
-	cur_gun_name = guns[cur_gun].gun_name
+
 	update_hud()
 	
 func _input(event):
@@ -43,41 +38,20 @@ func _input(event):
 		rotation_degrees.y -= MOUSE_SENS * event.relative.x
 		
 func _physics_process(_delta: float):
-	var move_vec = Vector3()
+	var input_z: float = Input.get_action_strength("move_backwards") - Input.get_action_strength("move_fowards")
+	var input_x: float = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	
-	var input_z := Input.get_action_strength("move_backwards") - Input.get_action_strength("move_fowards")
-	var input_x := Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	
-	move_vec = Vector3(input_x, 0, input_z).normalized()
+	move_vec = Vector3(input_x, 0, input_z)
 	
 	var running_delta := int(Input.is_action_pressed("sprint")) * MOVE_SPEED
 	cur_speed = MOVE_SPEED + (running_delta)
 	
 	move_vec = move_vec.rotated(Vector3(0, 1, 0), rotation.y)
-	move_vec = move_and_slide(move_vec * cur_speed)
+	move_vec = move_and_slide(move_vec * cur_speed, Vector3.UP, true)
 	
-	if Input.is_action_just_released("nextGun"):
-		changeGun("nextGun")
-	if Input.is_action_just_released("previousGun"):
-		changeGun("previousGun")
+	if Input.is_action_just_released("nextGun"): gun_controller.next_gun()
+	if Input.is_action_just_released("previousGun"): gun_controller.previous_gun()
 
-func changeGun(action: String) -> void:
-	match action:
-		"nextGun":
-			if cur_gun < guns.size() - 1:
-				remove_child(guns[cur_gun])
-				cur_gun += 1
-		"previousGun":
-			if cur_gun > 0:
-				remove_child(guns[cur_gun])
-				cur_gun -= 1
-		_:
-			return
-	add_child(guns[cur_gun])
-	cur_gun_name = guns[cur_gun].gun_name
-	print(cur_gun_name)
-	update_hud()
-	
 func kill() -> void:
 	get_tree().reload_current_scene()
 
@@ -97,4 +71,3 @@ func rec_dmg(dmg):
 
 func update_hud():
 	hp_bar.value = hp
-	gun_name_label.text = cur_gun_name

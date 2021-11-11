@@ -5,9 +5,9 @@
 [ext_resource path="res://sounds/guns/pistol_shoot.wav" type="AudioStream" id=3]
 
 [node name="PetGun" instance=ExtResource( 1 )]
-gun_name = "Polietileno Tereftalato"
+collision_mask = 7
 gun_dmg = 1.0
-gun_type = 1
+gun_name = "Polietileno Tereftalato"
 
 [node name="Sprite" parent="CanvasLayer" index="0"]
 texture = ExtResource( 2 )

@@ -4,7 +4,7 @@
 
 [node name="TankZombie" instance=ExtResource( 1 )]
 hp = 10
-enemy_type = 3
+enemy_type = 2
 
 [node name="Sprite3D" parent="." index="3"]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )

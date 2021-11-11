@@ -1,9 +1,39 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://sounds/guns/PVC_shoot.wav" type="AudioStream" id=1]
 [ext_resource path="res://sprites/fps_shooter_sprites.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/crosshair.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/gun.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 512, 248 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "appear"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.5, 0.5 ),
+"update": 0,
+"values": [ Vector2( 512, 248 ), Vector2( 512, 232 ) ]
+}
 
 [sub_resource type="Animation" id=1]
 resource_name = "shoot"
@@ -23,20 +53,22 @@ tracks/0/keys = {
 }
 
 [node name="Gun" type="RayCast"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
 enabled = true
-cast_to = Vector3( 0, 0, -2000 )
+cast_to = Vector3( 0, 0, -5000 )
+collision_mask = 2
 script = ExtResource( 4 )
-camera_path = NodePath(".")
 shake_magnitude = 5.0
 gun_dmg = 3.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Sprite" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 512, 232 )
+position = Vector2( 512, 248 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 hframes = 4
+frame = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
 anchor_right = 1.0
@@ -56,6 +88,9 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "appear"
+anims/RESET = SubResource( 2 )
+anims/appear = SubResource( 3 )
 anims/shoot = SubResource( 1 )
 
 [node name="shoot" type="AudioStreamPlayer" parent="."]
