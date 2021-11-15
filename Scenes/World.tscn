@@ -1,12 +1,13 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Scenes/Zombie.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/PETZombie.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/TankZombie.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Health_Kit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sprites/ambient/ground.png" type="Texture" id=5]
 [ext_resource path="res://sprites/ambient/stone_wall.png" type="Texture" id=6]
 [ext_resource path="res://models/Dollynho/source/dolly.fbx" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/ShootingZombie.tscn" type="PackedScene" id=8]
 [ext_resource path="res://items/Item.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CubeMesh" id=1]
@@ -48,6 +49,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.863, 1.5, -15.878 )
 
 [node name="Zombie2" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.024, 1.5, -15.858 )
+
+[node name="ShootingZombie" parent="." instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.125, 1.5, -2.154 )
 
 [node name="TankZombie" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -15.802 )

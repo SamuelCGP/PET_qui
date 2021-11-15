@@ -11,6 +11,7 @@ var inDelay = false
 export(float, 0.5, 10, 0.5) var speed: float = 3
 export var hp = 3
 export var enemy_dmg = 1
+export var attack_range : float = 1.5
 export(int, "PET", "PEAD", "PVC", "PEBD", "PP", "PS") var enemy_type = 0
 
 onready var delay: float = anim_player.get_animation("attacking").length
@@ -24,7 +25,7 @@ func _physics_process(delta: float) -> void:
 	
 	var vec_to_player = player.translation - translation
 	vec_to_player = vec_to_player.normalized()
-	raycast.cast_to = vec_to_player * 1.5
+	raycast.cast_to = vec_to_player * attack_range
 	
 	move_and_slide(vec_to_player * speed)
 	
@@ -56,6 +57,19 @@ func kill():
 	dead = true
 	$CollisionShape.disabled = true
 	anim_player.play("die")
+	
+	if enemy_type == 0:
+		if(randf() >= .6):
+			spawn(load("res://Scenes/PEADZombie.tscn"))
+	
+func spawn(enemy_to_spawn : PackedScene):
+	var instance : Node = enemy_to_spawn.instance()
+	instance.transform = transform
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	instance.translation = translation + Vector3(rng.randf_range(-1, 1), 0, rng.randf_range(-1, 1))
+	instance.set_player(player)
+	get_parent().add_child(instance)
 
 func set_player(p):
 	player = p
