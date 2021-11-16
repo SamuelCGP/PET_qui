@@ -14,6 +14,7 @@ onready var label: Label = get_node(label_path) as Label
 
 func _ready() -> void:
 	create_gun_instance()
+	update_gun_name()
 
 func next_gun() -> void:
 	var _gun_index = min(current_type + 1, gun_scenes.size() - 1)
@@ -39,6 +40,7 @@ func create_gun_instance() -> void:
 	
 	player.call_deferred("add_child", _instance)
 	
+	_instance.add_to_group("gun")
 	current = _instance
 
 func update_gun_name() -> void:

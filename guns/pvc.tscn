@@ -5,8 +5,8 @@
 
 [node name="PVC" instance=ExtResource( 2 )]
 gun_type = 2
+gun_name = "Policloreto de Vinila"
 
-[node name="Sprite" parent="CanvasLayer" index="0"]
+[node name="Sprite" parent="." index="2"]
 texture = ExtResource( 1 )
 hframes = 5
-frame = 0

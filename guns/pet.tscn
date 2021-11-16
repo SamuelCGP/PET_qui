@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://guns/Gun.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Sprites/guns/1PET.png" type="Texture" id=2]
+[ext_resource path="res://sprites/guns/1PET.png" type="Texture" id=2]
 [ext_resource path="res://sounds/guns/pistol_shoot.wav" type="AudioStream" id=3]
 
 [node name="PetGun" instance=ExtResource( 1 )]
@@ -9,9 +9,8 @@ collision_mask = 7
 gun_dmg = 1.0
 gun_name = "Polietileno Tereftalato"
 
-[node name="Sprite" parent="CanvasLayer" index="0"]
-texture = ExtResource( 2 )
-frame = 0
-
-[node name="shoot" parent="." index="2"]
+[node name="shoot" parent="." index="1"]
 stream = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="2"]
+texture = ExtResource( 2 )

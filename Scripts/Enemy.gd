@@ -16,6 +16,10 @@ export(int, "PET", "PEAD", "PVC", "PEBD", "PP", "PS") var enemy_type = 0
 
 onready var delay: float = anim_player.get_animation("attacking").length
 
+onready var nav : Navigation = get_parent()
+var path := []
+var path_node := 0
+
 func _ready() -> void:
 	anim_player.play("walk")
 	add_to_group("zombies")
@@ -27,12 +31,24 @@ func _physics_process(delta: float) -> void:
 	vec_to_player = vec_to_player.normalized()
 	raycast.cast_to = vec_to_player * attack_range
 	
-	move_and_slide(vec_to_player * speed)
+#	move_and_slide(vec_to_player * speed)
 	
 	if raycast.is_colliding():
 		var coll = raycast.get_collider()
 		if coll != null and coll.name == "Player":
 			deal_damage(coll)
+			return
+			
+	if path_node < path.size():
+		var direction = (path[path_node] - global_transform.origin)
+		if direction.length() < 1:
+			path_node += 1
+		else:
+			move_and_slide(direction.normalized() * speed)
+
+func move_to(target_pos : Vector3):
+	path = nav.get_simple_path(global_transform.origin, target_pos)
+	path_node = 0
 
 func deal_damage(collided_player: Player) -> void:
 	collided_player.rec_dmg(enemy_dmg)
@@ -73,3 +89,6 @@ func spawn(enemy_to_spawn : PackedScene):
 
 func set_player(p):
 	player = p
+
+func _on_Timer_timeout():
+	move_to(player.global_transform.origin)

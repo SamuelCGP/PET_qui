@@ -11,7 +11,7 @@ var move_vec: Vector3 = Vector3()
 onready var audio_music: AudioStreamPlayer = $music
 onready var audio_hit: AudioStreamPlayer = $rec_dmg
 onready var audio_hp: AudioStreamPlayer = $rec_hp
-onready var hp_bar: ProgressBar = $CanvasLayer/VBoxContainer/hp_bar
+onready var hp_bar: ProgressBar = $VBoxContainer/hp_bar
 onready var gun_controller: GunController = $GunController as GunController
 
 onready var max_hp: int = hp_bar.value
@@ -53,7 +53,9 @@ func _physics_process(_delta: float):
 	if Input.is_action_just_released("previousGun"): gun_controller.previous_gun()
 
 func kill() -> void:
-	get_tree().reload_current_scene()
+	var controller = get_tree().get_nodes_in_group("controller")[0]
+	if !controller.game_over:
+		controller.game_over()
 
 func rec_hp(h: int) -> void:
 	hp = hp + h

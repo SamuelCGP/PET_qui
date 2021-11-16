@@ -1,0 +1,82 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/GameOverMenu.gd" type="Script" id=1]
+
+[node name="GameOverMenu" type="Control" groups=[
+"pause",
+]]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.117647 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/CenterContainer"]
+margin_left = 270.0
+margin_top = 118.0
+margin_right = 370.0
+margin_bottom = 242.0
+custom_constants/vseparation = 50
+
+[node name="RichTextLabel" type="Label" parent="CanvasLayer/CenterContainer/GridContainer"]
+margin_right = 100.0
+margin_bottom = 14.0
+focus_neighbour_bottom = NodePath("../Button")
+text = "GAME OVER"
+align = 1
+valign = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/CenterContainer/GridContainer"]
+margin_top = 64.0
+margin_right = 100.0
+margin_bottom = 124.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/GridContainer/CenterContainer"]
+margin_right = 100.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 20
+alignment = 1
+
+[node name="Retry" type="Button" parent="CanvasLayer/CenterContainer/GridContainer/CenterContainer/VBoxContainer"]
+margin_right = 100.0
+margin_bottom = 20.0
+focus_neighbour_bottom = NodePath("../Button3")
+text = "Retry"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" type="Button" parent="CanvasLayer/CenterContainer/GridContainer/CenterContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 100.0
+margin_bottom = 60.0
+focus_neighbour_top = NodePath("../Button3")
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="CanvasLayer/CenterContainer/GridContainer/CenterContainer/VBoxContainer/Retry" to="." method="_on_Retry_button_down"]
+[connection signal="button_down" from="CanvasLayer/CenterContainer/GridContainer/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_button_down"]

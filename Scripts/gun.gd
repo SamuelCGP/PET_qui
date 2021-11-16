@@ -6,7 +6,7 @@ export(float, 1, 10, 0.5) var gun_dmg: int = 1
 export(int, "PET", "PEAD", "PVC", "PEBD", "PP", "PS") var gun_type: int = 0
 export var gun_name: String = "gun"
 
-onready var sprite: Sprite = $CanvasLayer/Sprite
+onready var sprite: Sprite = $Sprite
 onready var anim_player: AnimationPlayer = $AnimationPlayer
 onready var audio_shoot: AudioStreamPlayer = $shoot
 onready var camera: FPCamera = get_parent().get_node("Camera") as FPCamera

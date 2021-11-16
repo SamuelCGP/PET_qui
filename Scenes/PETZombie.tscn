@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://sprites/enemies/dollynhoGrid.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/Zombie.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Enemy.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -78,3 +78,9 @@ billboard = 2
 texture = ExtResource( 1 )
 hframes = 5
 vframes = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
