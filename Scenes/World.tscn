@@ -1,8 +1,7 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/PETZombie.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/TankZombie.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Health_Kit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sprites/ambient/ground.png" type="Texture" id=5]
 [ext_resource path="res://sprites/ambient/stone_wall.png" type="Texture" id=6]
@@ -22,23 +21,23 @@ uv1_triplanar = true
 
 [sub_resource type="BoxShape" id=3]
 
-[sub_resource type="NavigationMesh" id=7]
-vertices = PoolVector3Array( 42, 2, 49, 49, 2, 49, 49, 2, 42, -49, 2, 42, -49, 2, 49, -37, 2, 49, 49, 2, -37, 49, 2, -49, 42, 2, -49, 36, 2, 49, 42, 2, 49, 49, 2, 42, -37, 2, -49, -49, 2, -49, -49, 2, -37, -49, 2, 36, -49, 2, 42, -37, 2, 49, -25, 2, 49, 49, 2, -37, 42, 2, -49, 36, 2, -49, 49, 2, -25, 36, 2, 49, 49, 2, 42, 49, 2, 36, 24, 2, 49, -25, 2, -49, -37, 2, -49, -49, 2, -37, -49, 2, 24, -7, 2, 49, 0, 2, 49, -49, 2, 12, 0, 2, -49, -7, 2, -49, -49, 2, -25, -49, 2, -13, 49, 2, 0, 49, 2, -7, 24, 2, -49, 12, 2, -49, -25, 2, -49, -49, 2, -37, -49, 2, -25, -13, 2, -49, -49, 2, 24, -49, 2, 36, -25, 2, 49, -13, 2, 49, 49, 2, -25, 36, 2, -49, 24, 2, -49, 49, 2, -13, 24, 2, 49, 49, 2, 36, 49, 2, 24, 12, 2, 49, 49, 2, 0, 0, 2, -49, -49, 2, 0, -49, 2, 12, 0, 2, 49, 49, 2, 12, 0, 2, -49, -49, 2, -13, -49, 2, -7, 49, 2, 0, 12, 2, -49, 0, 2, -49, 0, 2, -49, -49, 2, -7, -49, 2, 0, -7, 2, -49, -13, 2, -49, -49, 2, -25, -49, 2, 24, -13, 2, 49, -7, 2, 49, 49, 2, -7, 49, 2, -13, 24, 2, -49, 12, 2, 49, 49, 2, 24, 49, 2, 12, 0, 2, 49 )
-polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 8, 7, 6 ), PoolIntArray( 11, 10, 9 ), PoolIntArray( 14, 13, 12 ), PoolIntArray( 16, 15, 17 ), PoolIntArray( 17, 15, 18 ), PoolIntArray( 20, 19, 21 ), PoolIntArray( 21, 19, 22 ), PoolIntArray( 24, 23, 25 ), PoolIntArray( 25, 23, 26 ), PoolIntArray( 29, 28, 27 ), PoolIntArray( 31, 30, 32 ), PoolIntArray( 32, 30, 33 ), PoolIntArray( 35, 34, 36 ), PoolIntArray( 36, 34, 37 ), PoolIntArray( 39, 38, 40 ), PoolIntArray( 40, 38, 41 ), PoolIntArray( 43, 42, 44 ), PoolIntArray( 44, 42, 45 ), PoolIntArray( 47, 46, 48 ), PoolIntArray( 48, 46, 49 ), PoolIntArray( 51, 50, 52 ), PoolIntArray( 52, 50, 53 ), PoolIntArray( 55, 54, 56 ), PoolIntArray( 56, 54, 57 ), PoolIntArray( 63, 62, 58 ), PoolIntArray( 58, 62, 61 ), PoolIntArray( 58, 61, 60 ), PoolIntArray( 58, 60, 59 ), PoolIntArray( 66, 65, 64 ), PoolIntArray( 69, 68, 67 ), PoolIntArray( 72, 71, 70 ), PoolIntArray( 75, 74, 73 ), PoolIntArray( 78, 77, 76 ), PoolIntArray( 81, 80, 79 ), PoolIntArray( 83, 82, 84 ), PoolIntArray( 84, 82, 85 ) ]
+[sub_resource type="NavigationMesh" id=4]
+vertices = PoolVector3Array( -43, 2, -49, -49, 2, -49, -49, 2, -37, -36, 2, -49, -43, 2, -49, -49, 2, -37, -30, 2, -49, -36, 2, -49, -49, 2, -37, -23, 2, -49, -30, 2, -49, -49, 2, -37, -17, 2, -49, -23, 2, -49, -49, 2, -37, -49, 2, -25, -49, 2, -7, -49, 2, 0, -3, 2, 0, -2, 2, -6, 4, 2, -6, 4, 2, -49, -3, 2, -49, -49, 2, -7, -3, 2, 0, -2, 2, -6, -49, 2, -13, -2, 2, -6, -3, 2, -49, -10, 2, -49, -2, 2, -6, -10, 2, -49, -17, 2, -49, -49, 2, -25, -49, 2, -13, 49, 2, -37, 49, 2, -49, 37, 2, -49, 49, 2, -37, 37, 2, -49, 26, 2, -49, 49, 2, -25, 49, 2, -37, 26, 2, -49, 15, 2, -49, 11, 2, 0, 49, 2, 0, 49, 2, -7, 10, 2, -6, 11, 2, 0, 49, 2, -7, 49, 2, -13, 10, 2, -6, 49, 2, -13, 49, 2, -25, 15, 2, -49, 4, 2, -49, 4, 2, -6, -1, 14, -4, -1, 14, 4, 9, 14, 4, 9, 14, -4, -49, 2, 42, -49, 2, 49, -43, 2, 49, -49, 2, 36, -49, 2, 42, -43, 2, 49, -36, 2, 49, -10, 2, 49, -3, 2, 49, -2, 2, 6, -49, 2, 36, -36, 2, 49, -30, 2, 49, -49, 2, 36, -30, 2, 49, -23, 2, 49, -49, 2, 36, -23, 2, 49, -17, 2, 49, -49, 2, 24, -17, 2, 49, -10, 2, 49, -2, 2, 6, -49, 2, 12, -49, 2, 24, 4, 2, 49, 4, 2, 6, -2, 2, 6, -3, 2, 49, -2, 2, 6, -3, 2, 0, -49, 2, 0, -49, 2, 12, 37, 2, 49, 49, 2, 49, 49, 2, 42, 37, 2, 49, 49, 2, 42, 49, 2, 36, 26, 2, 49, 49, 2, 24, 49, 2, 12, 10, 2, 6, 4, 2, 6, 4, 2, 49, 15, 2, 49, 26, 2, 49, 49, 2, 36, 49, 2, 24, 15, 2, 49, 49, 2, 0, 11, 2, 0, 10, 2, 6, 49, 2, 12 )
+polygons = [ PoolIntArray( 2, 1, 0 ), PoolIntArray( 5, 4, 3 ), PoolIntArray( 8, 7, 6 ), PoolIntArray( 11, 10, 9 ), PoolIntArray( 13, 12, 14 ), PoolIntArray( 14, 12, 15 ), PoolIntArray( 18, 17, 16 ), PoolIntArray( 20, 19, 21 ), PoolIntArray( 21, 19, 22 ), PoolIntArray( 24, 23, 25 ), PoolIntArray( 25, 23, 26 ), PoolIntArray( 29, 28, 27 ), PoolIntArray( 32, 31, 33 ), PoolIntArray( 33, 31, 34 ), PoolIntArray( 34, 31, 30 ), PoolIntArray( 37, 36, 35 ), PoolIntArray( 38, 40, 39 ), PoolIntArray( 42, 41, 43 ), PoolIntArray( 43, 41, 44 ), PoolIntArray( 47, 46, 45 ), PoolIntArray( 49, 48, 50 ), PoolIntArray( 50, 48, 51 ), PoolIntArray( 52, 57, 53 ), PoolIntArray( 53, 57, 54 ), PoolIntArray( 54, 57, 55 ), PoolIntArray( 55, 57, 56 ), PoolIntArray( 61, 60, 58 ), PoolIntArray( 58, 60, 59 ), PoolIntArray( 64, 63, 62 ), PoolIntArray( 66, 65, 67 ), PoolIntArray( 67, 65, 68 ), PoolIntArray( 71, 70, 69 ), PoolIntArray( 74, 73, 72 ), PoolIntArray( 77, 76, 75 ), PoolIntArray( 79, 78, 80 ), PoolIntArray( 80, 78, 81 ), PoolIntArray( 82, 86, 83 ), PoolIntArray( 83, 86, 85 ), PoolIntArray( 83, 85, 84 ), PoolIntArray( 88, 87, 89 ), PoolIntArray( 89, 87, 90 ), PoolIntArray( 92, 91, 93 ), PoolIntArray( 93, 91, 94 ), PoolIntArray( 97, 96, 95 ), PoolIntArray( 99, 98, 100 ), PoolIntArray( 100, 98, 101 ), PoolIntArray( 104, 103, 105 ), PoolIntArray( 105, 103, 102 ), PoolIntArray( 105, 102, 107 ), PoolIntArray( 105, 107, 106 ), PoolIntArray( 109, 108, 110 ), PoolIntArray( 110, 108, 111 ), PoolIntArray( 113, 112, 114 ), PoolIntArray( 114, 112, 115 ) ]
 cell/size = 1.0
 cell/height = 1.0
 agent/radius = 1.0
 
-[sub_resource type="CubeMesh" id=4]
+[sub_resource type="CubeMesh" id=5]
 size = Vector3( 100, 1, 100 )
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=6]
 flags_unshaded = true
 albedo_texture = ExtResource( 5 )
 uv1_scale = Vector3( 0.2, 0.2, 0.2 )
 uv1_triplanar = true
 
-[sub_resource type="ConcavePolygonShape" id=6]
+[sub_resource type="ConcavePolygonShape" id=7]
 data = PoolVector3Array( -50, 0.5, 50, 50, 0.5, 50, -50, -0.5, 50, 50, 0.5, 50, 50, -0.5, 50, -50, -0.5, 50, 50, 0.5, -50, -50, 0.5, -50, 50, -0.5, -50, -50, 0.5, -50, -50, -0.5, -50, 50, -0.5, -50, 50, 0.5, 50, 50, 0.5, -50, 50, -0.5, 50, 50, 0.5, -50, 50, -0.5, -50, 50, -0.5, 50, -50, 0.5, -50, -50, 0.5, 50, -50, -0.5, -50, -50, 0.5, 50, -50, -0.5, 50, -50, -0.5, -50, 50, 0.5, 50, -50, 0.5, 50, 50, 0.5, -50, -50, 0.5, 50, -50, 0.5, -50, 50, 0.5, -50, -50, -0.5, 50, 50, -0.5, 50, -50, -0.5, -50, 50, -0.5, 50, 50, -0.5, -50, -50, -0.5, -50 )
 
 [node name="World" type="Spatial" groups=[
@@ -87,18 +86,31 @@ transform = Transform( 0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 10.504, 0.365218, -9.
 [node name="Navigation" type="Navigation" parent="."]
 
 [node name="NavigationMeshInstance" type="NavigationMeshInstance" parent="Navigation"]
-navmesh = SubResource( 7 )
+navmesh = SubResource( 4 )
 
 [node name="Ground" type="MeshInstance" parent="Navigation/NavigationMeshInstance"]
 pause_mode = 1
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
-mesh = SubResource( 4 )
-material/0 = SubResource( 5 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
 
 [node name="StaticBody" type="StaticBody" parent="Navigation/NavigationMeshInstance/Ground"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/Ground/StaticBody"]
-shape = SubResource( 6 )
+shape = SubResource( 7 )
+
+[node name="StoneWall2" type="StaticBody" parent="Navigation/NavigationMeshInstance"]
+pause_mode = 1
+transform = Transform( 5.51161, 0, 0, 0, -6.38937, 0, 0, 0, -4.17881, 3.84407, 5.70929, 0 )
+collision_layer = 4
+
+[node name="Wall" type="MeshInstance" parent="Navigation/NavigationMeshInstance/StoneWall2"]
+transform = Transform( 2, 0, 0, 0, 0.0833333, 0, 0, 0, 0.02, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Navigation/NavigationMeshInstance/StoneWall2"]
+shape = SubResource( 3 )
 
 [node name="Zombie" parent="Navigation" instance=ExtResource( 1 )]
 pause_mode = 1
@@ -111,7 +123,3 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.024, 1.5, -15.858 )
 [node name="ShootingZombie" parent="Navigation" instance=ExtResource( 8 )]
 pause_mode = 1
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.125, 1.5, -2.154 )
-
-[node name="TankZombie" parent="Navigation" instance=ExtResource( 3 )]
-pause_mode = 1
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -15.802 )

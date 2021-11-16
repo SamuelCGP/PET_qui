@@ -1,7 +1,7 @@
 extends KinematicBody
 class_name Enemy
 
-onready var anim_player: AnimationPlayer = $AnimationPlayer
+onready var anim_player: AnimatedSprite3D = $AnimatedSprite3D
 onready var raycast: RayCast = $RayCast
 
 var player: Player = null
@@ -13,8 +13,6 @@ export var hp = 3
 export var enemy_dmg = 1
 export var attack_range : float = 1.5
 export(int, "PET", "PEAD", "PVC", "PEBD", "PP", "PS") var enemy_type = 0
-
-onready var delay: float = anim_player.get_animation("attacking").length
 
 onready var nav : Navigation = get_parent()
 var path := []
@@ -64,10 +62,9 @@ func rec_dmg(dmg: int) -> void:
 	hp = hp - dmg
 
 func atk_delay():
-	anim_player.play("attacking")
-	yield(get_tree().create_timer(delay), "timeout")
-	anim_player.play("walk")
-	inDelay = false
+	if dead: return
+	anim_player.play("attack")
+	inDelay = true
 
 func kill():
 	dead = true
@@ -77,6 +74,8 @@ func kill():
 	if enemy_type == 0:
 		if(randf() >= .6):
 			spawn(load("res://Scenes/PEADZombie.tscn"))
+			
+	set_physics_process(false)
 	
 func spawn(enemy_to_spawn : PackedScene):
 	var instance : Node = enemy_to_spawn.instance()
@@ -92,3 +91,9 @@ func set_player(p):
 
 func _on_Timer_timeout():
 	move_to(player.global_transform.origin)
+
+
+func _on_AnimatedSprite3D_animation_finished():
+	if $AnimatedSprite3D.animation == "attack":
+		anim_player.play("walk")
+		inDelay = false

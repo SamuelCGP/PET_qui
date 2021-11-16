@@ -9,6 +9,8 @@ var gun_scenes: Array = [load("res://guns/pet.tscn"), load("res://guns/pvc.tscn"
 var current_type: int = Types.PET
 var current: Gun = null
 
+signal gun_changed(current_gun_type)
+
 onready var player: KinematicBody = get_parent() as KinematicBody
 onready var label: Label = get_node(label_path) as Label
 
@@ -33,6 +35,7 @@ func change_gun(type: int) -> void:
 	create_gun_instance()
 	
 	update_gun_name()
+	emit_signal("gun_changed", current_type)
 
 func create_gun_instance() -> void:
 	var _chosen_gun: PackedScene = gun_scenes[current_type]
