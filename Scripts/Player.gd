@@ -4,7 +4,7 @@ class_name Player
 const MOVE_SPEED: float = 4.0
 const MOUSE_SENS: float = 0.25
 
-var hp: int = 20
+var hp: int = 50
 var cur_speed: int = MOVE_SPEED
 var move_vec: Vector3 = Vector3()
 

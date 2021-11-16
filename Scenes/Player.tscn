@@ -11,9 +11,9 @@
 [ext_resource path="res://sprites/items/1gun.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Hotbar.gd" type="Script" id=10]
 
-[sub_resource type="CapsuleShape" id=4]
+[sub_resource type="CapsuleShape" id=1]
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.835294, 0.12549, 0.12549, 1 )
 border_width_left = 2
 border_width_top = 2
@@ -55,7 +55,7 @@ volume_db = 10.0
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_top = 1.0
@@ -72,7 +72,7 @@ __meta__ = {
 margin_right = 247.0
 margin_bottom = 20.0
 theme = ExtResource( 4 )
-custom_styles/fg = SubResource( 5 )
+custom_styles/fg = SubResource( 2 )
 custom_styles/bg = SubResource( 3 )
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -109,7 +109,6 @@ margin_top = 20.0
 margin_right = 50.0
 margin_bottom = 70.0
 rect_min_size = Vector2( 40, 0 )
-rect_scale = Vector2( 0.5, 0.5 )
 size_flags_horizontal = 5
 texture = ExtResource( 9 )
 stretch_mode = 6
@@ -119,7 +118,6 @@ margin_top = 74.0
 margin_right = 50.0
 margin_bottom = 124.0
 rect_min_size = Vector2( 40, 0 )
-rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -130,7 +128,6 @@ margin_top = 128.0
 margin_right = 50.0
 margin_bottom = 178.0
 rect_min_size = Vector2( 40, 0 )
-rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -141,7 +138,6 @@ margin_top = 182.0
 margin_right = 50.0
 margin_bottom = 232.0
 rect_min_size = Vector2( 40, 0 )
-rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -152,7 +148,6 @@ margin_top = 236.0
 margin_right = 50.0
 margin_bottom = 286.0
 rect_min_size = Vector2( 40, 0 )
-rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -163,7 +158,6 @@ margin_top = 290.0
 margin_right = 50.0
 margin_bottom = 340.0
 rect_min_size = Vector2( 40, 0 )
-rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false

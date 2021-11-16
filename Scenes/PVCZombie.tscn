@@ -34,6 +34,9 @@ animations = [ {
 } ]
 
 [node name="Zombie" instance=ExtResource( 1 )]
+speed = 2.5
+hp = 2
+enemy_dmg = 5
 attack_range = 8.0
 enemy_type = 2
 

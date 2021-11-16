@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://guns/Gun.tscn" type="PackedScene" id=1]
-[ext_resource path="res://sprites/guns/1PET.png" type="Texture" id=2]
+[ext_resource path="res://sprites/guns/pet/tile000.png" type="Texture" id=2]
 [ext_resource path="res://sounds/guns/pistol_shoot.wav" type="AudioStream" id=3]
+[ext_resource path="res://sprites/guns/pet/tile003.png" type="Texture" id=4]
+[ext_resource path="res://sprites/guns/pet/tile001.png" type="Texture" id=5]
+[ext_resource path="res://sprites/guns/pet/tile002.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "shoot",
+"speed": 20.0
+} ]
 
 [node name="PetGun" instance=ExtResource( 1 )]
 collision_mask = 7
@@ -12,5 +23,6 @@ gun_name = "Polietileno Tereftalato"
 [node name="shoot" parent="." index="1"]
 stream = ExtResource( 3 )
 
-[node name="Sprite" parent="." index="2"]
-texture = ExtResource( 2 )
+[node name="AnimatedSprite" parent="." index="3"]
+frames = SubResource( 1 )
+frame = 3

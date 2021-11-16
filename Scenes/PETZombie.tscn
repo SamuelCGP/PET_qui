@@ -17,7 +17,7 @@
 
 [sub_resource type="CapsuleShape" id=1]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 6 ), ExtResource( 14 ) ],
 "loop": false,
@@ -36,10 +36,10 @@ animations = [ {
 } ]
 
 [node name="Zombie" type="KinematicBody"]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
 collision_layer = 2
 collision_mask = 3
 script = ExtResource( 2 )
+enemy_dmg = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
@@ -54,7 +54,7 @@ autostart = true
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 billboard = 2
-frames = SubResource( 5 )
+frames = SubResource( 2 )
 animation = "attack"
 frame = 3
 playing = true

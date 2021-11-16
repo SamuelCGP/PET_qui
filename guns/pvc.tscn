@@ -1,12 +1,26 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://sprites/guns/3PVC.png" type="Texture" id=1]
+[ext_resource path="res://sprites/guns/pvc/tile002.png" type="Texture" id=1]
 [ext_resource path="res://guns/Gun.tscn" type="PackedScene" id=2]
+[ext_resource path="res://sprites/guns/pvc/tile003.png" type="Texture" id=3]
+[ext_resource path="res://sprites/guns/pvc/tile004.png" type="Texture" id=4]
+[ext_resource path="res://sprites/guns/pvc/tile001.png" type="Texture" id=5]
+[ext_resource path="res://sprites/guns/pvc/tile000.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 6 ) ],
+"loop": false,
+"name": "shoot",
+"speed": 7.0
+} ]
 
 [node name="PVC" instance=ExtResource( 2 )]
+gun_dmg = 1.0
 gun_type = 2
 gun_name = "Policloreto de Vinila"
 
-[node name="Sprite" parent="." index="2"]
-texture = ExtResource( 1 )
-hframes = 5
+[node name="AnimatedSprite" parent="." index="3"]
+position = Vector2( 530.185, 250.44 )
+frames = SubResource( 1 )
+frame = 4

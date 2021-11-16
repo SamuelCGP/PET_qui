@@ -14,7 +14,7 @@ export var enemy_dmg = 1
 export var attack_range : float = 1.5
 export(int, "PET", "PEAD", "PVC", "PEBD", "PP", "PS") var enemy_type = 0
 
-onready var nav : Navigation = get_parent()
+onready var nav : Navigation = get_parent().get_parent().get_node("Navigation")
 var path := []
 var path_node := 0
 
