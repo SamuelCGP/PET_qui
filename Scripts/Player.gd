@@ -20,7 +20,6 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	yield(get_tree(), "idle_frame")
-	get_tree().call_group("zombies", "set_player", self)
 
 	update_hud()
 	

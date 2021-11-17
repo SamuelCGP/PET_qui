@@ -22,15 +22,15 @@ animations = [ {
 "name": "attack",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
-"loop": true,
-"name": "walk",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 13 ) ],
 "loop": false,
 "name": "die",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "walk",
+"speed": 7.0
 } ]
 
 [node name="Zombie" instance=ExtResource( 1 )]

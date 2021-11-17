@@ -4,6 +4,8 @@ class_name Enemy
 onready var anim_player: AnimatedSprite3D = $AnimatedSprite3D
 onready var raycast: RayCast = $RayCast
 
+signal died
+
 var player: Player = null
 var dead = false
 var inDelay = false
@@ -21,6 +23,8 @@ var path_node := 0
 func _ready() -> void:
 	anim_player.play("walk")
 	add_to_group("zombies")
+	
+	connect("died", get_parent().get_parent(), "on_enemy_killed")
 
 func _physics_process(delta: float) -> void:
 	if not is_instance_valid(player) or dead or inDelay: return
@@ -76,6 +80,8 @@ func kill():
 			spawn(load("res://Scenes/PEADZombie.tscn"))
 			
 	set_physics_process(false)
+	emit_signal("died")
+	$DestroyTimer.start()
 	
 func spawn(enemy_to_spawn : PackedScene):
 	var instance : Node = enemy_to_spawn.instance()
@@ -97,3 +103,7 @@ func _on_AnimatedSprite3D_animation_finished():
 	if $AnimatedSprite3D.animation == "attack":
 		anim_player.play("walk")
 		inDelay = false
+
+
+func _on_DestroyTimer_timeout():
+	queue_free()

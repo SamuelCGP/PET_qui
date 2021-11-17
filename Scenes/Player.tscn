@@ -8,8 +8,8 @@
 [ext_resource path="res://sounds/player/rec_hp.wav" type="AudioStream" id=6]
 [ext_resource path="res://Scripts/Camera.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/GunController.gd" type="Script" id=8]
-[ext_resource path="res://sprites/items/1gun.png" type="Texture" id=9]
-[ext_resource path="res://Scenes/Hotbar.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/GunIcon.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/Hotbar.gd" type="Script" id=10]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -72,11 +72,11 @@ __meta__ = {
 margin_right = 247.0
 margin_bottom = 20.0
 theme = ExtResource( 4 )
-custom_styles/fg = SubResource( 2 )
-custom_styles/bg = SubResource( 3 )
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
 max_value = 20.0
 value = 20.0
 __meta__ = {
@@ -97,72 +97,42 @@ __meta__ = {
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -50.0
+margin_left = -51.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
 alignment = 1
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PET" type="TextureRect" parent="Hotbar"]
-margin_top = 20.0
-margin_right = 50.0
-margin_bottom = 70.0
-rect_min_size = Vector2( 40, 0 )
-size_flags_horizontal = 5
-texture = ExtResource( 9 )
-stretch_mode = 6
+[node name="PET" parent="Hotbar" instance=ExtResource( 9 )]
 
-[node name="PVC" type="TextureRect" parent="Hotbar"]
-margin_top = 74.0
-margin_right = 50.0
-margin_bottom = 124.0
-rect_min_size = Vector2( 40, 0 )
-texture = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="ColorRect" parent="Hotbar/PET" index="0"]
+visible = true
 
-[node name="TextureRect3" type="TextureRect" parent="Hotbar"]
-margin_top = 128.0
-margin_right = 50.0
+[node name="PEAD" parent="Hotbar" instance=ExtResource( 9 )]
+margin_top = 60.0
+margin_bottom = 117.0
+
+[node name="PVC" parent="Hotbar" instance=ExtResource( 9 )]
+margin_top = 121.0
 margin_bottom = 178.0
-rect_min_size = Vector2( 40, 0 )
-texture = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="TextureRect4" type="TextureRect" parent="Hotbar"]
+[node name="PEBD" parent="Hotbar" instance=ExtResource( 9 )]
 margin_top = 182.0
-margin_right = 50.0
-margin_bottom = 232.0
-rect_min_size = Vector2( 40, 0 )
-texture = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_bottom = 238.0
 
-[node name="TextureRect5" type="TextureRect" parent="Hotbar"]
-margin_top = 236.0
-margin_right = 50.0
-margin_bottom = 286.0
-rect_min_size = Vector2( 40, 0 )
-texture = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="PP" parent="Hotbar" instance=ExtResource( 9 )]
+margin_top = 242.0
+margin_bottom = 299.0
 
-[node name="TextureRect6" type="TextureRect" parent="Hotbar"]
-margin_top = 290.0
-margin_right = 50.0
-margin_bottom = 340.0
-rect_min_size = Vector2( 40, 0 )
-texture = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="PS" parent="Hotbar" instance=ExtResource( 9 )]
+margin_top = 303.0
+margin_bottom = 360.0
 
 [node name="Tween" type="Tween" parent="Hotbar"]
 
 [connection signal="gun_changed" from="GunController" to="Hotbar" method="_on_GunController_gun_changed"]
+
+[editable path="Hotbar/PET"]
