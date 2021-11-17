@@ -12,6 +12,8 @@ var game_over_menu
 var waves := []
 var wave_index = 0
 var wave_kills = 0
+var waves_survived = 0
+var enemies_left := 0
 
 var spawn_positions = []
 
@@ -38,7 +40,10 @@ func set_player_to_enemies() -> void:
 	get_tree().call_group("zombies", "set_player", $Player)
 
 func spawn_wave():
+	if wave_index > waves.size() - 1: wave_index = 0
+	
 	var wave = waves[wave_index]
+	
 	var enemy : Resource
 	
 	for i in wave.PET:
@@ -137,9 +142,13 @@ func _add_dir_contents(dir: Directory, files: Array, directories: Array):
 func on_enemy_killed() -> void:
 	wave_kills += 1
 	
-	if wave_kills >= waves[wave_index].get_enemy_amount():
+	enemies_left = self.get_tree().get_nodes_in_group("zombies").size() - 3
+	
+	print(enemies_left)
+	if enemies_left <= 0:
 		next_wave()
 		
 func next_wave() -> void:
+	waves_survived += 1
 	wave_index += 1
 	spawn_wave()

@@ -1,0 +1,29 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://guns/Gun.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/guns/pebd/tile000.png" type="Texture" id=2]
+[ext_resource path="res://sprites/guns/pebd/tile001.png" type="Texture" id=3]
+[ext_resource path="res://sprites/guns/pebd/tile002.png" type="Texture" id=4]
+[ext_resource path="res://sprites/guns/pebd/tile003.png" type="Texture" id=5]
+[ext_resource path="res://sounds/guns/turtle_shoot.ogg" type="AudioStream" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "shoot",
+"speed": 7.0
+} ]
+
+[node name="pebd" instance=ExtResource( 1 )]
+gun_dmg = 1.0
+gun_type = 3
+gun_name = "Polietileno de Baixa Densidade"
+
+[node name="shoot" parent="." index="1"]
+stream = ExtResource( 6 )
+
+[node name="AnimatedSprite" parent="." index="3"]
+position = Vector2( 450.805, 250.832 )
+frames = SubResource( 1 )
+frame = 3

@@ -3,3 +3,6 @@
 [ext_resource path="res://Scenes/Waves/AbstractWave.tscn" type="PackedScene" id=1]
 
 [node name="Wave" instance=ExtResource( 1 )]
+PET = 5
+PVC = 10
+PEBD = 10

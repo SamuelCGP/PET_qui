@@ -1,6 +1,6 @@
 extends Item
 
-export var hp_recovery: int = 5
+export var hp_recovery: int = 20
 var rotate_speed: float = 100.0
 
 onready var medkit: MeshInstance = $medkit

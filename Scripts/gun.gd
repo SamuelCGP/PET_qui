@@ -18,7 +18,6 @@ func _input(event: InputEvent) -> void:
 		shoot()
 
 func shoot() -> void:
-	print(inDelay)
 	if inDelay: return
 	
 	anim_sprite.frame = 0

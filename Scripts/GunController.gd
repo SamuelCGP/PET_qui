@@ -1,11 +1,11 @@
 extends Node
 class_name GunController
 
-enum Types { PET, PVC }
+enum Types { PET, PEAD, PVC, PEBD}
 
 export var label_path: NodePath
 
-var gun_scenes: Array = [load("res://guns/pet.tscn"), load("res://guns/pvc.tscn")]
+var gun_scenes: Array = [load("res://guns/pet.tscn"), load("res://guns/pead.tscn"), load("res://guns/pvc.tscn"), load("res://guns/pebd.tscn")]
 var current_type: int = Types.PET
 var current: Gun = null
 

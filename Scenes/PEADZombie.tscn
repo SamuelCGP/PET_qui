@@ -20,21 +20,21 @@ animations = [ {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": false,
 "name": "attack",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 13 ) ],
-"loop": false,
-"name": "die",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 14 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "walk",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "die",
+"speed": 10.0
 } ]
 
 [node name="Zombie" instance=ExtResource( 1 )]
-speed = 4.0
+speed = 8.0
 enemy_type = 1
 
 [node name="AnimatedSprite3D" parent="." index="3"]

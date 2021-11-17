@@ -25,7 +25,13 @@ func _on_GunController_gun_changed(current_gun_type):
 		GunController.Types.PET:
 			outline = $PET/ColorRect
 			
+		GunController.Types.PEAD:
+			outline = $PEAD/ColorRect
+			
 		GunController.Types.PVC:
 			outline = $PVC/ColorRect
+			
+		GunController.Types.PEBD:
+			outline = $PEBD/ColorRect
 		
 	outline.visible = true
