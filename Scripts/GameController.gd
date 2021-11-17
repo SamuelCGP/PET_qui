@@ -16,9 +16,10 @@ var waves_survived = 0
 var enemies_left := 0
 
 var spawn_positions = []
+var countdown_seconds : int = -1
+export var countdown_duration : int = 6
 
-# Called when the node enters the scene tree for the first time.
-
+signal countdown_over
 
 func _ready():
 	for file in get_dir_contents("res://Scenes/Waves/")[0]:
@@ -32,47 +33,33 @@ func _ready():
 	for position in $SpawnPositions.get_children():
 		spawn_positions.append(position)
 		
-	spawn_wave()
+	show_wave_name()
 	
 func set_player_to_enemies() -> void:
 	get_tree().call_group("zombies", "set_player", $Player)
 
+
 func spawn_wave():
 	if wave_index > waves.size() - 1: wave_index = 0
 	
-	
 	var wave = waves[wave_index]
-	$Player/WaveProgress.max_value = waves[wave_index].get_enemy_amount()	
+	$Player/WaveProgress.max_value = waves[wave_index].get_enemy_amount()
 	
 	var enemy : Resource
-	
-	for i in wave.PET:
-		enemy = load("res://Scenes/PETZombie.tscn")
-		spawn_enemy(enemy)
+	for key in wave.types:
+		var amount = wave.get(key)
+		if amount > 0:
+			enemy = load("res://Scenes/" + key + "Zombie.tscn")
+		else:
+			continue
 		
-	for i in wave.PVC:
-		enemy = load("res://Scenes/PVCZombie.tscn")
-		spawn_enemy(enemy)
-		
-	for i in wave.PEBD:
-		enemy = load("res://Scenes/PEBDZombie.tscn")
-		spawn_enemy(enemy)
-		
-	for i in wave.PEAD:
-		enemy = load("res://Scenes/PEADZombie.tscn")
-		spawn_enemy(enemy)
-		
-	for i in wave.PP:
-		spawn_enemy(enemy)
-		
-	for i in wave.PS:
-		spawn_enemy(enemy)
+		for i in amount:
+			spawn_enemy(enemy)
 		
 	set_player_to_enemies()
 
 func spawn_enemy(enemy : Resource):
 	randomize()
-	
 	
 	var i = randi() % spawn_positions.size()
 	
@@ -138,10 +125,18 @@ func _add_dir_contents(dir: Directory, files: Array, directories: Array):
 		file_name = dir.get_next()
 
 	dir.list_dir_end()
+	
+func countdown():
+	countdown_seconds = 0
+	$WaveCountdown.start()
+	$CountdownLabel.text = str(countdown_duration - 1)
+	
+func show_wave_name():
+	$CountdownLabel.text = "WAVE " + str(wave_index + 1)
+	$WaveName.start()
 
 func update_wave_progress(new_value : int) -> void:
 	var wave_progress : ProgressBar = $Player/WaveProgress
-#	wave_progress.value = new_value
 	var tween : Tween = $Player/WaveProgress/Tween
 	tween.interpolate_property(wave_progress, "value", wave_progress.value, new_value, .2)
 	tween.start()
@@ -150,16 +145,36 @@ func on_enemy_killed() -> void:
 	wave_kills += 1
 	
 	update_wave_progress(wave_kills)
-	
-#	enemies_left = self.get_tree().get_nodes_in_group("zombies").size() - 3
-	
-#	print(enemies_left)
 	if wave_kills >= waves[wave_index].get_enemy_amount():
 		next_wave()
 		
 func next_wave() -> void:
+
 	wave_kills = 0
 	waves_survived += 1
 	wave_index += 1
 	update_wave_progress(0)
-	spawn_wave()
+	
+	if(wave_index >= waves.size()):
+		end_game()
+		return
+	
+	show_wave_name()
+	
+func end_game() -> void:
+	print("you win yay")
+
+func _on_WaveCountdown_timeout():
+	countdown_seconds += 1
+	
+	if(countdown_seconds == countdown_duration):
+		$CountdownLabel.text = ""
+		spawn_wave()
+		return
+	elif(countdown_seconds == countdown_duration - 1):
+		$CountdownLabel.text = "GO!"
+	else:
+		$CountdownLabel.text = str(countdown_duration - 1 - countdown_seconds)
+		
+	$WaveCountdown.start()
+
