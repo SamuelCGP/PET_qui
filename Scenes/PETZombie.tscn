@@ -19,20 +19,20 @@
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 6 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 7 ) ],
 "loop": false,
-"name": "attack",
-"speed": 5.0
+"name": "die",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "walk",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 8 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 11 ), ExtResource( 6 ), ExtResource( 14 ) ],
 "loop": false,
-"name": "die",
-"speed": 10.0
+"name": "attack",
+"speed": 5.0
 } ]
 
 [node name="Zombie" type="KinematicBody"]
