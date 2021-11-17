@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://items/Item.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Health_Kit.gd" type="Script" id=2]
+[ext_resource path="res://models/Medkit-1.1/obj/medkit.obj" type="ArrayMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+resource_name = "Material.001"
+flags_transparent = true
+albedo_color = Color( 0.0980392, 0.52549, 0.984314, 0.52549 )
+metallic = 1.0
+
+[sub_resource type="SpatialMaterial" id=2]
+resource_name = "Material"
+flags_transparent = true
+albedo_color = Color( 0.0980392, 0.52549, 0.984314, 0.52549 )
+metallic = 1.0
+
+[sub_resource type="SpatialMaterial" id=3]
+resource_name = "Material.001"
+flags_transparent = true
+albedo_color = Color( 0.0980392, 0.52549, 0.984314, 0.52549 )
+metallic = 1.0
+
+[sub_resource type="SpatialMaterial" id=4]
+resource_name = "Material.002"
+flags_transparent = true
+albedo_color = Color( 0.0784314, 0.0784314, 0.0784314, 0.34902 )
+metallic = 1.0
+
+[node name="Health_Kit" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sprite3D" parent="." index="1"]
+visible = false
+
+[node name="medkit" type="MeshInstance" parent="." index="3"]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, -0.25, 0 )
+mesh = ExtResource( 3 )
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
+material/2 = SubResource( 3 )
+material/3 = SubResource( 4 )

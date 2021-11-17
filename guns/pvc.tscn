@@ -21,6 +21,5 @@ gun_type = 2
 gun_name = "Policloreto de Vinila"
 
 [node name="AnimatedSprite" parent="." index="3"]
-position = Vector2( 530.185, 250.44 )
 frames = SubResource( 1 )
 frame = 4

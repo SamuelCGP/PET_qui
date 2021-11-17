@@ -17,8 +17,6 @@ var enemies_left := 0
 
 var spawn_positions = []
 
-enum Types { PET, PVC, PEBD, PEAD, PP, PS }
-
 # Called when the node enters the scene tree for the first time.
 
 
@@ -42,7 +40,9 @@ func set_player_to_enemies() -> void:
 func spawn_wave():
 	if wave_index > waves.size() - 1: wave_index = 0
 	
+	
 	var wave = waves[wave_index]
+	$Player/WaveProgress.max_value = waves[wave_index].get_enemy_amount()	
 	
 	var enemy : Resource
 	
@@ -139,16 +139,27 @@ func _add_dir_contents(dir: Directory, files: Array, directories: Array):
 
 	dir.list_dir_end()
 
+func update_wave_progress(new_value : int) -> void:
+	var wave_progress : ProgressBar = $Player/WaveProgress
+#	wave_progress.value = new_value
+	var tween : Tween = $Player/WaveProgress/Tween
+	tween.interpolate_property(wave_progress, "value", wave_progress.value, new_value, .2)
+	tween.start()
+
 func on_enemy_killed() -> void:
 	wave_kills += 1
 	
-	enemies_left = self.get_tree().get_nodes_in_group("zombies").size() - 3
+	update_wave_progress(wave_kills)
 	
-	print(enemies_left)
-	if enemies_left <= 0:
+#	enemies_left = self.get_tree().get_nodes_in_group("zombies").size() - 3
+	
+#	print(enemies_left)
+	if wave_kills >= waves[wave_index].get_enemy_amount():
 		next_wave()
 		
 func next_wave() -> void:
+	wave_kills = 0
 	waves_survived += 1
 	wave_index += 1
+	update_wave_progress(0)
 	spawn_wave()

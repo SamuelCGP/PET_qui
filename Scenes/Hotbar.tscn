@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/GunIcon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Hotbar.gd" type="Script" id=2]
+
+[node name="Hotbar" type="VBoxContainer"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -57.0
+rect_scale = Vector2( 0.7, 0.7 )
+size_flags_horizontal = 2
+size_flags_vertical = 3
+alignment = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PET" parent="." instance=ExtResource( 1 )]
+margin_right = 57.0
+
+[node name="ColorRect" parent="PET" index="0"]
+visible = true
+
+[node name="PEAD" parent="." instance=ExtResource( 1 )]
+margin_top = 60.0
+margin_right = 57.0
+margin_bottom = 117.0
+
+[node name="PVC" parent="." instance=ExtResource( 1 )]
+margin_top = 121.0
+margin_right = 57.0
+margin_bottom = 178.0
+
+[node name="PEBD" parent="." instance=ExtResource( 1 )]
+margin_top = 182.0
+margin_right = 57.0
+margin_bottom = 238.0
+
+[node name="PP" parent="." instance=ExtResource( 1 )]
+margin_top = 242.0
+margin_right = 57.0
+margin_bottom = 299.0
+
+[node name="PS" parent="." instance=ExtResource( 1 )]
+margin_top = 303.0
+margin_right = 57.0
+margin_bottom = 360.0
+
+[node name="Tween" type="Tween" parent="."]
+
+[editable path="PET"]

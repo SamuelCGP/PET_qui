@@ -11,7 +11,7 @@ animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ) ],
 "loop": false,
 "name": "shoot",
-"speed": 3.0
+"speed": 10.0
 } ]
 
 [node name="pead" instance=ExtResource( 1 )]
@@ -21,3 +21,4 @@ gun_name = "Polietileno de Alta Densidade"
 [node name="AnimatedSprite" parent="." index="3"]
 frames = SubResource( 1 )
 frame = 3
+playing = true

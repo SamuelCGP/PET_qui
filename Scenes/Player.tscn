@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://resources/04b03.tres" type="DynamicFont" id=1]
 [ext_resource path="res://sounds/music/music1.wav" type="AudioStream" id=2]
@@ -8,8 +8,7 @@
 [ext_resource path="res://sounds/player/rec_hp.wav" type="AudioStream" id=6]
 [ext_resource path="res://Scripts/Camera.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/GunController.gd" type="Script" id=8]
-[ext_resource path="res://Scenes/GunIcon.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scripts/Hotbar.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/Hotbar.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -57,6 +56,28 @@ volume_db = 10.0
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 1 )
 
+[node name="WaveProgress" type="ProgressBar" parent="."]
+modulate = Color( 0.054902, 0.960784, 0.219608, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -150.0
+margin_top = 10.0
+margin_right = 150.0
+margin_bottom = 20.0
+size_flags_horizontal = 2
+theme = ExtResource( 4 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+max_value = 50.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="WaveProgress"]
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -72,11 +93,11 @@ __meta__ = {
 margin_right = 247.0
 margin_bottom = 20.0
 theme = ExtResource( 4 )
-custom_styles/fg = SubResource( 2 )
-custom_styles/bg = SubResource( 3 )
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
 max_value = 50.0
 value = 50.0
 __meta__ = {
@@ -93,46 +114,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Hotbar" type="VBoxContainer" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -51.0
-size_flags_horizontal = 2
-size_flags_vertical = 3
-alignment = 1
-script = ExtResource( 10 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PET" parent="Hotbar" instance=ExtResource( 9 )]
-
-[node name="ColorRect" parent="Hotbar/PET" index="0"]
-visible = true
-
-[node name="PEAD" parent="Hotbar" instance=ExtResource( 9 )]
-margin_top = 60.0
-margin_bottom = 117.0
-
-[node name="PVC" parent="Hotbar" instance=ExtResource( 9 )]
-margin_top = 121.0
-margin_bottom = 178.0
-
-[node name="PEBD" parent="Hotbar" instance=ExtResource( 9 )]
-margin_top = 182.0
-margin_bottom = 238.0
-
-[node name="PP" parent="Hotbar" instance=ExtResource( 9 )]
-margin_top = 242.0
-margin_bottom = 299.0
-
-[node name="PS" parent="Hotbar" instance=ExtResource( 9 )]
-margin_top = 303.0
-margin_bottom = 360.0
-
-[node name="Tween" type="Tween" parent="Hotbar"]
+[node name="Hotbar" parent="." instance=ExtResource( 9 )]
 
 [connection signal="gun_changed" from="GunController" to="Hotbar" method="_on_GunController_gun_changed"]
-
-[editable path="Hotbar/PET"]

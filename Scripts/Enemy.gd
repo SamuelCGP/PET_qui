@@ -9,6 +9,7 @@ signal died
 var player: Player = null
 var dead = false
 var inDelay = false
+var active = true
 
 export(float, 0.5, 10, 0.5) var speed: float = 3
 export var hp = 3
@@ -21,13 +22,18 @@ var path := []
 var path_node := 0
 
 func _ready() -> void:
+	var rng := RandomNumberGenerator.new()
+	rng.randomize()
+	var rand : float = rng.randf_range(.3, .7)
+	$SpawnTimer.wait_time = rand
+	$SpawnTimer.start()
 	anim_player.play("walk")
 	add_to_group("zombies")
 	
 	connect("died", get_parent().get_parent(), "on_enemy_killed")
 
 func _physics_process(delta: float) -> void:
-	if not is_instance_valid(player) or dead or inDelay: return
+	if not is_instance_valid(player) or dead or inDelay or !active: return
 	
 	var vec_to_player = player.translation - translation
 	vec_to_player = vec_to_player.normalized()
@@ -75,13 +81,15 @@ func kill():
 	$CollisionShape.disabled = true
 	anim_player.play("die")
 	
-	if enemy_type == 0:
+	set_physics_process(false)
+	$DestroyTimer.start()
+	
+	if enemy_type == Enums.Types.PET:
 		if(randf() >= .6):
 			spawn(load("res://Scenes/PEADZombie.tscn"))
-			
-	set_physics_process(false)
+			return
+
 	emit_signal("died")
-	$DestroyTimer.start()
 	
 func spawn(enemy_to_spawn : PackedScene):
 	var instance : Node = enemy_to_spawn.instance()
@@ -107,3 +115,7 @@ func _on_AnimatedSprite3D_animation_finished():
 
 func _on_DestroyTimer_timeout():
 	queue_free()
+
+
+func _on_SpawnTimer_timeout():
+	active = true

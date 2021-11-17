@@ -34,10 +34,10 @@ animations = [ {
 } ]
 
 [node name="Zombie" instance=ExtResource( 1 )]
-speed = 2.5
+speed = 3.0
 hp = 2
 enemy_dmg = 5
-attack_range = 8.0
+attack_range = 6.0
 enemy_type = 2
 
 [node name="AnimatedSprite3D" parent="." index="3"]
