@@ -1,0 +1,19 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Fir_Tree.obj-5f69d4bc092d5abb3f5d6268ba35de70.mesh"
+
+[deps]
+
+files=[ "res://.import/Fir_Tree.obj-5f69d4bc092d5abb3f5d6268ba35de70.mesh" ]
+
+source_file="res://models/nature/Fir_Tree.obj"
+dest_files=[ "res://.import/Fir_Tree.obj-5f69d4bc092d5abb3f5d6268ba35de70.mesh", "res://.import/Fir_Tree.obj-5f69d4bc092d5abb3f5d6268ba35de70.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+optimize_mesh=true
