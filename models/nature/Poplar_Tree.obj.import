@@ -16,4 +16,5 @@ dest_files=[ "res://.import/Poplar_Tree.obj-69770fd838629a9f204f6824936f6703.mes
 generate_tangents=true
 scale_mesh=Vector3( 1, 1, 1 )
 offset_mesh=Vector3( 0, 0, 0 )
-optimize_mesh=true
+octahedral_compression=true
+optimize_mesh_flags=4286

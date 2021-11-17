@@ -2,13 +2,8 @@ extends Control
 
 
 
-func _on_PlayButton_button_down():
+func _on_PlayButton_button_up():
 	get_tree().change_scene("res://Scenes/World.tscn")
 
-
-func _on_OptionsButton_button_down():
-	pass # Replace with function body.
-
-
-func _on_QuitButton_button_down():
+func _on_QuitButton_button_up() -> void:
 	get_tree().quit()

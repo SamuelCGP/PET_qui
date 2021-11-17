@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://resources/04b03.tres" type="DynamicFont" id=1]
 [ext_resource path="res://sounds/music/music1.wav" type="AudioStream" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Scripts/Camera.gd" type="Script" id=7]
 [ext_resource path="res://Scripts/GunController.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/Hotbar.tscn" type="PackedScene" id=9]
+[ext_resource path="res://resources/04b_03.TTF" type="DynamicFontData" id=10]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -27,6 +28,11 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color( 0.466667, 0.0313726, 0.0313726, 1 )
 
+[sub_resource type="DynamicFont" id=4]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
+
 [node name="Player" type="KinematicBody"]
 collision_mask = 6
 script = ExtResource( 3 )
@@ -36,6 +42,7 @@ script = ExtResource( 8 )
 label_path = NodePath("../VBoxContainer/gun_name_label")
 
 [node name="Camera" type="Camera" parent="."]
+pause_mode = 2
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1 )
 current = true
 script = ExtResource( 7 )
@@ -108,7 +115,7 @@ __meta__ = {
 margin_top = 24.0
 margin_right = 247.0
 margin_bottom = 40.0
-custom_fonts/font = ExtResource( 1 )
+custom_fonts/font = SubResource( 4 )
 text = "gun name here"
 __meta__ = {
 "_edit_use_anchors_": false
