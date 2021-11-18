@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/You Win.mp3-b69fa4c9ca664bd5a8df7887c752005e.mp3str"
+
+[deps]
+
+source_file="res://sounds/You Win.mp3"
+dest_files=[ "res://.import/You Win.mp3-b69fa4c9ca664bd5a8df7887c752005e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

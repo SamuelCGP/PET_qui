@@ -157,12 +157,17 @@ func next_wave() -> void:
 	
 	if(wave_index >= waves.size()):
 		end_game()
+		end_game()
 		return
 	
 	show_wave_name()
 	
 func end_game() -> void:
-	print("you win yay")
+	yield(get_tree().create_timer(2.0), "timeout")
+	var win_screen : Control = load("res://Scenes/WinScreen.tscn").instance()
+	add_child(win_screen)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+	get_tree().paused = true
 
 func _on_WaveCountdown_timeout():
 	countdown_seconds += 1

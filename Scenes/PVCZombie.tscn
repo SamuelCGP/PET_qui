@@ -17,26 +17,26 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ],
 "loop": false,
-"name": "attack",
-"speed": 6.0
+"name": "die",
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 12 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "walk",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 10 ), ExtResource( 11 ) ],
 "loop": false,
-"name": "die",
-"speed": 8.0
+"name": "attack",
+"speed": 6.0
 } ]
 
 [node name="Zombie" instance=ExtResource( 1 )]
-speed = 3.0
+speed = 5.0
 hp = 2
-enemy_dmg = 5
+enemy_dmg = 3
 attack_range = 6.0
 enemy_type = 2
 
