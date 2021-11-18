@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sand.jpg-322a66b385527a139be72ec889562111.stex"
+path="res://.import/sand.jpg-f61656cc36385310f4e233657cd2d1c7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ambient/sand.jpg"
-dest_files=[ "res://.import/sand.jpg-322a66b385527a139be72ec889562111.stex" ]
+source_file="res://Sprites/ambient/sand.jpg"
+dest_files=[ "res://.import/sand.jpg-f61656cc36385310f4e233657cd2d1c7.stex" ]
 
 [params]
 

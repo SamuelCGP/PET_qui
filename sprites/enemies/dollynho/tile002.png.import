@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile002.png-37e4fda9560e049c3a4a8929d7417e10.stex"
+path="res://.import/tile002.png-d1d75af349493bc9f6a79f2911362136.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemies/dollynho/tile002.png"
-dest_files=[ "res://.import/tile002.png-37e4fda9560e049c3a4a8929d7417e10.stex" ]
+source_file="res://Sprites/enemies/dollynho/tile002.png"
+dest_files=[ "res://.import/tile002.png-d1d75af349493bc9f6a79f2911362136.stex" ]
 
 [params]
 

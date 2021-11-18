@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile005.png-5ce9dd6e9c943dab45ab1f8fd783a4e7.stex"
+path="res://.import/tile005.png-efe62b2117cde479611623d4c9deb613.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemies/pebd/tile005.png"
-dest_files=[ "res://.import/tile005.png-5ce9dd6e9c943dab45ab1f8fd783a4e7.stex" ]
+source_file="res://Sprites/enemies/pebd/tile005.png"
+dest_files=[ "res://.import/tile005.png-efe62b2117cde479611623d4c9deb613.stex" ]
 
 [params]
 
@@ -23,7 +23,7 @@ flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false

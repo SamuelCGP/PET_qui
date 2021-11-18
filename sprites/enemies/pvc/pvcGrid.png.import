@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pvcGrid.png-b46778f3f5e7a574db42169008fa3fed.stex"
+path="res://.import/pvcGrid.png-66827cfa02f9e7d299d5f81dc3f3b610.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemies/pvc/pvcGrid.png"
-dest_files=[ "res://.import/pvcGrid.png-b46778f3f5e7a574db42169008fa3fed.stex" ]
+source_file="res://Sprites/enemies/pvc/pvcGrid.png"
+dest_files=[ "res://.import/pvcGrid.png-66827cfa02f9e7d299d5f81dc3f3b610.stex" ]
 
 [params]
 

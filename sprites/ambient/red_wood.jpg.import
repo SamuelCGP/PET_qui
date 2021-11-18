@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/red_wood.jpg-a49e264415792b1ebd32ba93ed6806c0.stex"
+path="res://.import/red_wood.jpg-a4b8345e218cb197191efaf7e018ec00.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ambient/red_wood.jpg"
-dest_files=[ "res://.import/red_wood.jpg-a49e264415792b1ebd32ba93ed6806c0.stex" ]
+source_file="res://Sprites/ambient/red_wood.jpg"
+dest_files=[ "res://.import/red_wood.jpg-a4b8345e218cb197191efaf7e018ec00.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false

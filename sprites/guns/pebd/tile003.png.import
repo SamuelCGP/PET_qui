@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile003.png-69627fed99043adcda9456cd4e6b6023.stex"
+path="res://.import/tile003.png-091ef85234820e133d35b47c9ccb19b1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/guns/pebd/tile003.png"
-dest_files=[ "res://.import/tile003.png-69627fed99043adcda9456cd4e6b6023.stex" ]
+source_file="res://Sprites/guns/pebd/tile003.png"
+dest_files=[ "res://.import/tile003.png-091ef85234820e133d35b47c9ccb19b1.stex" ]
 
 [params]
 

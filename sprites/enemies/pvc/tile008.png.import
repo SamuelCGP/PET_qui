@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile008.png-cbfb484847b94dab6df7d21ab2c20af9.stex"
+path="res://.import/tile008.png-ebf5ada136f54ea9329056af95600b0f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemies/pvc/tile008.png"
-dest_files=[ "res://.import/tile008.png-cbfb484847b94dab6df7d21ab2c20af9.stex" ]
+source_file="res://Sprites/enemies/pvc/tile008.png"
+dest_files=[ "res://.import/tile008.png-ebf5ada136f54ea9329056af95600b0f.stex" ]
 
 [params]
 

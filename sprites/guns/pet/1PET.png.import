@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/1PET.png-6f593da84ea8bec5f33ff2b041181bb7.stex"
+path="res://.import/1PET.png-6908bf0af878c27e285a0aef664667f9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/guns/pet/1PET.png"
-dest_files=[ "res://.import/1PET.png-6f593da84ea8bec5f33ff2b041181bb7.stex" ]
+source_file="res://Sprites/guns/pet/1PET.png"
+dest_files=[ "res://.import/1PET.png-6908bf0af878c27e285a0aef664667f9.stex" ]
 
 [params]
 

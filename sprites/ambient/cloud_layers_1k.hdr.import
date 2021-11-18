@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cloud_layers_1k.hdr-bd2d6b8ea40fa502da2b00a35ab292e3.stex"
+path="res://.import/cloud_layers_1k.hdr-f127caf94e5616d5ad28b6fc1e4c07ac.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ambient/cloud_layers_1k.hdr"
-dest_files=[ "res://.import/cloud_layers_1k.hdr-bd2d6b8ea40fa502da2b00a35ab292e3.stex" ]
+source_file="res://Sprites/ambient/cloud_layers_1k.hdr"
+dest_files=[ "res://.import/cloud_layers_1k.hdr-f127caf94e5616d5ad28b6fc1e4c07ac.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tile004.png-43c24ef29df634ae547906de18df85fb.stex"
+path="res://.import/tile004.png-1cbcdfdd19acc038252f5ff7ec83cc59.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemies/pead/tile004.png"
-dest_files=[ "res://.import/tile004.png-43c24ef29df634ae547906de18df85fb.stex" ]
+source_file="res://Sprites/enemies/pead/tile004.png"
+dest_files=[ "res://.import/tile004.png-1cbcdfdd19acc038252f5ff7ec83cc59.stex" ]
 
 [params]
 

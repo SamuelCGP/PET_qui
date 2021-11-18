@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://sprites/items/1gun.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/items/1gun.png" type="Texture" id=1]
+
 
 [node name="GunIcon" type="Control"]
 margin_right = 51.0

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/3PVC.png-612b59d14b97e446b3690cfbb952936d.stex"
+path="res://.import/3PVC.png-720aeca090d6afd08820b031e57f7060.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/guns/pvc/3PVC.png"
-dest_files=[ "res://.import/3PVC.png-612b59d14b97e446b3690cfbb952936d.stex" ]
+source_file="res://Sprites/guns/pvc/3PVC.png"
+dest_files=[ "res://.import/3PVC.png-720aeca090d6afd08820b031e57f7060.stex" ]
 
 [params]
 

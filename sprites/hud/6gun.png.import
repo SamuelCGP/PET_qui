@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/6gun.png-c64975396b919ff1d0c368ccfcea1740.stex"
+path="res://.import/6gun.png-0bbeda800003401297603d9dd5e19f3b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/hud/6gun.png"
-dest_files=[ "res://.import/6gun.png-c64975396b919ff1d0c368ccfcea1740.stex" ]
+source_file="res://Sprites/hud/6gun.png"
+dest_files=[ "res://.import/6gun.png-0bbeda800003401297603d9dd5e19f3b.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false

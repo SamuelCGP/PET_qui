@@ -14,6 +14,7 @@ var wave_index = 0
 var wave_kills = 0
 var waves_survived = 0
 var enemies_left := 0
+var tutorial_skipped = false
 
 var spawn_positions = []
 var countdown_seconds : int = -1
@@ -21,7 +22,20 @@ export var countdown_duration : int = 6
 
 signal countdown_over
 
+func _input(event : InputEvent) -> void:
+	if tutorial_skipped: return
+	
+	if event is InputEventKey:
+		if event.pressed:
+			on_skip_tutorial()
+
 func _ready():
+	pass
+	
+func on_skip_tutorial() -> void:
+	tutorial_skipped = true
+	$Tutorial.queue_free()
+	
 	for file in get_dir_contents("res://Scenes/Waves/")[0]:
 		if file == "res://Scenes/Waves/AbstractWave.tscn":
 			continue

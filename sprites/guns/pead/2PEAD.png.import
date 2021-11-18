@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/2PEAD.png-c89a6e5a0b8f434c6d5e4a40634529c5.stex"
+path="res://.import/2PEAD.png-f3d0a6e9ba1c4337c4b555c2a34b7457.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/guns/pead/2PEAD.png"
-dest_files=[ "res://.import/2PEAD.png-c89a6e5a0b8f434c6d5e4a40634529c5.stex" ]
+source_file="res://Sprites/guns/pead/2PEAD.png"
+dest_files=[ "res://.import/2PEAD.png-f3d0a6e9ba1c4337c4b555c2a34b7457.stex" ]
 
 [params]
 

@@ -69,8 +69,8 @@ _global_script_class_icons={
 [application]
 
 config/name="PET"
-run/main_scene="res://Scenes/World.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://Scenes/MainMenu.tscn"
+config/icon="res://sprites/items/1gun.png"
 
 [autoload]
 
@@ -88,6 +88,10 @@ window/size/test_height=540
 window/vsync/use_vsync=false
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
+
+[global]
+
+fon=false
 
 [importer_defaults]
 

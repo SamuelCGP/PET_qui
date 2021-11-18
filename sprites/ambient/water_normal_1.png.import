@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/water_normal_1.png-d6789dc6f57539714739ff7b8af6e217.stex"
+path="res://.import/water_normal_1.png-4ec75ac488b66a1cfa7eb0662a3c03ba.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ambient/water_normal_1.png"
-dest_files=[ "res://.import/water_normal_1.png-d6789dc6f57539714739ff7b8af6e217.stex" ]
+source_file="res://Sprites/ambient/water_normal_1.png"
+dest_files=[ "res://.import/water_normal_1.png-4ec75ac488b66a1cfa7eb0662a3c03ba.stex" ]
 
 [params]
 
@@ -28,6 +28,7 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
+process/normal_map_invert_y=false
 stream=false
 size_limit=0
 detect_3d=false

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pebdGrid.png-d9b326507122398239704fc322bfd0cc.stex"
+path="res://.import/pebdGrid.png-a004b69f091e0cb86fd68fe0ee2917a3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/enemies/pebd/pebdGrid.png"
-dest_files=[ "res://.import/pebdGrid.png-d9b326507122398239704fc322bfd0cc.stex" ]
+source_file="res://Sprites/enemies/pebd/pebdGrid.png"
+dest_files=[ "res://.import/pebdGrid.png-a004b69f091e0cb86fd68fe0ee2917a3.stex" ]
 
 [params]
 
