@@ -1,21 +1,26 @@
 extends VBoxContainer
-onready var outline : ColorRect = $PET/ColorRect
+onready var texture : TextureRect = $PET/Texture
+var color : Color = Color("#ffffff")
 
 func _on_GunController_gun_changed(current_gun_type):
-	if outline:
-		outline.visible = false
+	if texture:
+		texture.modulate = Color("#ffffff")
 	
 	match current_gun_type:
 		Enums.Types.PET:
-			outline = $PET/ColorRect
+			texture = $PET/Texture
+			color = Color("#ff0000")
 			
 		Enums.Types.PEAD:
-			outline = $PEAD/ColorRect
+			texture = $PEAD/Texture
+			color = Color("#ff8900")
 			
 		Enums.Types.PVC:
-			outline = $PVC/ColorRect
+			texture = $PVC/Texture
+			color = Color("#ffe900")
 			
 		Enums.Types.PEBD:
-			outline = $PEBD/ColorRect
+			texture = $PEBD/Texture
+			color = Color("#14ff00")
 		
-	outline.visible = true
+	texture.modulate = Color(color)

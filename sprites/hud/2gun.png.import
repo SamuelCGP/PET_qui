@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/title_screen.png-80fbee8594c45467bfcfc19e7531b92b.stex"
+path="res://.import/2gun.png-4390768c622b55d19504fa3becc2919a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/title_screen.png"
-dest_files=[ "res://.import/title_screen.png-80fbee8594c45467bfcfc19e7531b92b.stex" ]
+source_file="res://sprites/hud/2gun.png"
+dest_files=[ "res://.import/2gun.png-4390768c622b55d19504fa3becc2919a.stex" ]
 
 [params]
 
